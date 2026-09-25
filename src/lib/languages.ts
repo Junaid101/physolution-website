@@ -9,6 +9,11 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
   de: 'DE',
 };
 
+export const LANGUAGE_NAMES: Record<Language, string> = {
+  en: 'English',
+  de: 'Deutsch',
+};
+
 export function isSupportedLanguage(language: string): language is Language {
   return SUPPORTED_LANGUAGES.includes(language as Language);
 }
