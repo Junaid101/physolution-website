@@ -117,11 +117,11 @@ export const content = {
       sections: [
         [
           "Unternehmen / Betreiber",
-          "<strong>PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH</strong><br>Am Hegwald 13<br>64521 Groß-Gerau<br>Deutschland",
+          "<strong>PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH</strong><br>Ringstr. 11<br>76356 Weingarten (Baden)",
         ],
         [
           "Kontakt",
-          '<strong>E-Mail:</strong> <a href="mailto:info@physolution.com">info@physolution.com</a><br><strong>Telefon:</strong> <a href="tel:+49615298970">+49 (0) 6152 9897-0</a><br><strong>Website:</strong> <a href="/de/">www.physolution.com</a>',
+          '<strong>Telefon:</strong> <a href="tel:+491634283018">+49 163 4283018</a><br><strong>E-Mail:</strong> <a href="mailto:info@physolution.com">info@physolution.com</a><br><strong>Website:</strong> <a href="/de/">www.physolution.com</a>',
         ],
         [
           "Handelsregister & Unternehmensform",
@@ -129,11 +129,11 @@ export const content = {
         ],
         [
           "Vertretungsberechtigung",
-          '<strong>Geschäftsführung:</strong> <span class="legal-placeholder">[Geschäftsführung ergänzen]</span>',
+          '<strong>Geschäftsführer:</strong> Dr. Michael Speckmann',
         ],
         [
           "Umsatzsteuer-Identifikationsnummer",
-          '<strong>USt-IdNr.:</strong> <span class="legal-placeholder">[USt-IdNr. ergänzen]</span>',
+          '<strong>USt-IdNr.:</strong> DE177396297<br><strong>St-Nr.:</strong> 34 416 17391',
         ],
         [
           "Verantwortlich für den Inhalt",
@@ -308,11 +308,11 @@ export const content = {
       sections: [
         [
           "Company / Website operator",
-          "<strong>PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH</strong><br>Am Hegwald 13<br>64521 Groß-Gerau<br>Germany",
+          "<strong>PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH</strong><br>Ringstr. 11<br>76356 Weingarten (Baden)",
         ],
         [
           "Contact",
-          '<strong>Email:</strong> <a href="mailto:info@physolution.com">info@physolution.com</a><br><strong>Phone:</strong> <a href="tel:+49615298970">+49 (0) 6152 9897-0</a><br><strong>Website:</strong> <a href="/en/">www.physolution.com</a>',
+          '<strong>Phone:</strong> <a href="tel:+491634283018">+49 163 4283018</a><br><strong>Email:</strong> <a href="mailto:info@physolution.com">info@physolution.com</a><br><strong>Website:</strong> <a href="/en/">www.physolution.com</a>',
         ],
         [
           "Commercial Register & Corporate Structure",
@@ -320,11 +320,11 @@ export const content = {
         ],
         [
           "Authorised representatives",
-          '<strong>Managing director(s):</strong> <span class="legal-placeholder">[Managing director(s) to be added]</span>',
+          '<strong>Managing director:</strong> Dr. Michael Speckmann',
         ],
         [
           "VAT identification number",
-          '<strong>VAT ID:</strong> <span class="legal-placeholder">[VAT ID to be added]</span>',
+          '<strong>VAT ID:</strong> DE177396297<br><strong>Tax number:</strong> 34 416 17391',
         ],
         [
           "Responsible for website content",
