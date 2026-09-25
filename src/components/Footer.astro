@@ -36,7 +36,7 @@ const { data } = Astro.props;
 
     <div class="mt-16 pt-5 border-t border-white/15 flex flex-col md:flex-row justify-between gap-5 text-[10px] font-mono uppercase tracking-widest text-white/40">
       <div class="flex flex-wrap gap-x-6 gap-y-2">
-        {data.footer.legal.map((item:string[])=><a href={item[1]} class="hover:text-white transition-colors">{item[0]}</a>)}
+        {data.footer.legal.map((item:string[])=><a href={item[0] === (data.lang === 'de' ? 'Impressum' : 'Imprint') ? (data.lang === 'de' ? '/de/impressum/' : '/en/impressum/') : item[1]} class="hover:text-white transition-colors">{item[0]}</a>)}
         <a href="https://www.physolution.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">{data.original}</a>
       </div>
       <div class="flex flex-wrap gap-x-6 gap-y-2">
