@@ -1,0 +1,43 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+const {data}=Astro.props;
+---
+<main id="mainWebsite" class="min-h-screen relative">
+<Header data={data}/>
+
+<section id="heroSection" class="relative min-h-[90vh] px-6 md:px-16 pt-12 pb-20 flex flex-col justify-between editorial-grid border-b border-black/10 overflow-hidden">
+<div id="heroBlueBar" class="blue-bar"></div><div id="heroBlackContent" class="content-layer"><div class="max-w-7xl mx-auto w-full">
+<span class="text-xs font-mono uppercase tracking-widest text-[#002bff] block mb-6">{data.hero.kicker}</span>
+<h1 class="text-black text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-[.92] mb-10 max-w-7xl">{data.hero.title.map((x:string)=><><span>{x}</span><br/></>)}</h1>
+<p class="max-w-2xl text-black/65 text-base sm:text-lg leading-relaxed">{data.hero.intro}</p></div>
+<div class="max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mt-16"><div class="flex items-center gap-2 text-xs font-mono tracking-widest text-black/60"><span class="w-2 h-2 bg-[#002bff]"></span>{data.hero.since}</div><a href="#services" class="text-sm uppercase tracking-widest font-medium hover:text-[#002bff]">{data.hero.cta}</a></div></div>
+<div id="heroWhiteContent" class="white-layer"></div></section>
+
+<section id="services" class="relative px-6 md:px-16 py-32 overflow-hidden editorial-grid border-b border-black/10" style="min-height:100vh"><div id="scrollBluePanel" class="blue-bar"></div>
+<div id="workBlackContent" class="content-layer"><div class="max-w-7xl mx-auto"><div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8"><div><span class="text-xs font-mono uppercase tracking-widest text-black/50 block mb-3">{data.services.kicker}</span><h2 class="text-4xl md:text-6xl font-bold tracking-tight">{data.services.title.map((x:string)=><><span>{x}</span><br/></>)}</h2></div><p class="text-black/70 text-sm max-w-sm leading-relaxed">{data.services.intro}</p></div>
+<div class="divide-y divide-black/20 border-t border-b border-black/20">{data.services.items.map((item:string[])=><div class="py-7 px-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4"><span class="text-2xl md:text-4xl font-bold tracking-tight">{item[0]}</span><div class="flex items-center gap-6"><span class="text-xs font-mono uppercase opacity-70 hidden sm:block">{item[1]}</span><span class="text-xl">↗</span></div></div>)}</div></div></div>
+<div id="workWhiteContent" class="white-layer"></div></section>
+
+<section id="about" class="px-6 md:px-16 py-28 editorial-grid border-b border-black/10"><div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-16"><div class="max-w-3xl"><span class="text-xs font-mono uppercase tracking-widest text-black/50 block mb-4">{data.about.kicker}</span><h2 class="text-4xl md:text-6xl font-bold tracking-tight leading-none mb-10">{data.about.title.map((x:string)=><><span>{x}</span><br/></>)}</h2><div class="text-black/70 text-base md:text-lg leading-relaxed space-y-6">{data.about.paragraphs.map((p:string)=><p>{p}</p>)}</div></div><div class="w-full lg:w-80"><div class="border-t border-black/20 pt-6 mb-10"><span class="text-xs font-mono uppercase tracking-widest text-black/40">{data.lang==='de'?'Unternehmensgeschichte':'Company history'}</span></div><div class="space-y-8">{data.about.history.map((x:string[])=><div><span class="text-[#002bff] font-mono text-sm font-bold">{x[0]}</span><p class="text-sm text-black/65 mt-2">{x[1]}</p></div>)}</div></div></div></section>
+
+<section id="datamodel" class="px-6 md:px-16 py-28 border-b border-black/10"><div class="max-w-7xl mx-auto"><div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16"><div class="max-w-2xl"><span class="text-xs font-mono uppercase tracking-widest text-black/50 block mb-4">{data.model.kicker}</span><h2 class="text-4xl md:text-6xl font-bold tracking-tight">{data.model.title.map((x:string)=><><span>{x}</span><br/></>)}</h2></div><p class="text-black/70 text-sm max-w-sm leading-relaxed">{data.model.intro}</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">{data.model.cards.map((x:string[])=><div class="bg-white/80 p-8 rounded-2xl border border-black/10 shadow-sm"><span class="text-xs font-mono text-[#002bff] block mb-8">{x[0]}</span><h3 class="text-xl font-medium mb-3">{x[1]}</h3><p class="text-black/65 text-sm leading-relaxed">{x[2]}</p></div>)}</div></div></section>
+
+<section class="px-6 md:px-16 py-28 editorial-grid border-b border-black/10"><div class="max-w-7xl mx-auto"><div class="max-w-3xl mb-16"><span class="text-xs font-mono uppercase tracking-widest text-black/50 block mb-4">{data.tech.kicker}</span><h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">{data.tech.title.map((x:string)=><><span>{x}</span><br/></>)}</h2><p class="text-black/70 text-base leading-relaxed max-w-xl">{data.tech.intro}</p></div><div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-black/10 border border-black/10">{data.tech.items.map((x:string[])=><div class="bg-[#f3f2ee] p-8 md:p-10"><span class="text-xs font-mono text-black/40">{x[0]}</span><h3 class="text-xl font-medium mt-4">{x[1]}</h3></div>)}</div></div></section>
+
+<section id="contact" class="px-6 md:px-16 py-32 editorial-grid"><div class="max-w-5xl mx-auto text-center"><span class="text-xs font-mono uppercase tracking-widest text-black/50 block mb-5">{data.contact.kicker}</span><h2 class="text-4xl sm:text-7xl font-bold tracking-tight leading-[.95] mb-8">{data.contact.title.map((x:string)=><><span>{x}</span><br/></>)}</h2><p class="text-black/70 max-w-xl mx-auto mb-12 text-base sm:text-lg leading-relaxed">{data.contact.intro}</p><a href="https://www.physolution.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#002bff] text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl">{data.contact.cta}</a></div></section>
+<Footer data={data}/></main>
+
+<script>
+import {gsap} from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+const hero=document.getElementById('heroSection')!,work=document.getElementById('services')!,heroBar=document.getElementById('heroBlueBar')!,workBar=document.getElementById('scrollBluePanel')!,heroBlack=document.getElementById('heroBlackContent')!,workBlack=document.getElementById('workBlackContent')!,heroWhite=document.getElementById('heroWhiteContent')!,workWhite=document.getElementById('workWhiteContent')!;
+heroWhite.innerHTML=heroBlack.innerHTML;workWhite.innerHTML=workBlack.innerHTML;
+const state={mouseX:innerWidth*.55,width:90};
+function sync(section:HTMLElement,black:HTMLElement,white:HTMLElement){const sr=section.getBoundingClientRect(),br=black.getBoundingClientRect(),mx=state.mouseX-br.left,half=state.width/2;const lp=gsap.utils.clamp(0,100,((mx-half)/br.width)*100),rp=gsap.utils.clamp(0,100,100-((mx+half)/br.width)*100);gsap.set(white,{top:br.top-sr.top,left:br.left-sr.left,width:br.width,height:br.height,clipPath:'inset(0 '+rp+'% 0 '+lp+'%)'})}
+function update(){const hr=hero.getBoundingClientRect(),wr=work.getBoundingClientRect();gsap.set(heroBar,{left:state.mouseX-hr.left,width:state.width});gsap.set(workBar,{left:state.mouseX-wr.left,width:state.width});sync(hero,heroBlack,heroWhite);sync(work,workBlack,workWhite)}
+hero.addEventListener('mousemove',(e)=>{const r=hero.getBoundingClientRect(),p=gsap.utils.clamp(.05,.95,(e.clientX-r.left)/r.width);gsap.to(state,{mouseX:p*innerWidth,duration:.3,ease:'power3.out',overwrite:true,onUpdate:update})});
+ScrollTrigger.create({trigger:hero,start:'top top',end:()=>hero.offsetHeight+work.offsetHeight*.75,scrub:true,invalidateOnRefresh:true,onUpdate:s=>{state.width=gsap.utils.interpolate(90,innerWidth,s.progress);update()}});
+update();addEventListener('resize',()=>{ScrollTrigger.refresh();update()});document.fonts?.ready.then(()=>{ScrollTrigger.refresh();update()});addEventListener('load',()=>{ScrollTrigger.refresh();update()});
+</script>
