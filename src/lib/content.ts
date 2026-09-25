@@ -2,7 +2,7 @@ export type Locale = "en" | "de";
 export const content = {
   de: {
     nav: ["Leistungen", "Über uns", "Datenmodell"],
-    contact: "Kontakt",
+    contactLabel: "Kontakt",
     hero: {
       kicker: "01 / Stammdatenmanagement",
       title: [
@@ -190,7 +190,7 @@ export const content = {
   },
   en: {
     nav: ["Services", "About", "Data model"],
-    contact: "Contact",
+    contactLabel: "Contact",
     hero: {
       kicker: "01 / Master data management",
       title: [
