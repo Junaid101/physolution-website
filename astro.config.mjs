@@ -1,2 +1,3 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ site: 'https://www.physolution.com', trailingSlash: 'never' });
+import tailwindcss from '@tailwindcss/vite';
+export default defineConfig({ site: 'https://www.physolution.com', trailingSlash: 'never', vite: { plugins: [tailwindcss()] } });
