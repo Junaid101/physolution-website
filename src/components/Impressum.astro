@@ -3,31 +3,38 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 const { data } = Astro.props;
 ---
-<main class="min-h-screen relative">
+
+<main class="min-h-screen relative bg-[#f3f2ee]">
   <Header data={data} />
-  <section class="px-6 md:px-16 py-20 md:py-32 border-t border-black/10">
+
+  <section class="px-6 md:px-16 pt-16 md:pt-24 pb-24 md:pb-32 border-t border-black/10">
     <div class="max-w-7xl mx-auto">
+      <header class="max-w-4xl pb-16 md:pb-24 border-b border-black/10">
+        <span class="text-xs font-mono uppercase tracking-[.18em] text-[#002bff] block mb-6">{data.impressum.kicker}</span>
+        <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-[.88] mb-8">{data.impressum.title}</h1>
+        <p class="max-w-2xl text-base md:text-lg leading-relaxed text-black/60">{data.impressum.lead}</p>
+      </header>
+
       <div class="max-w-4xl">
-        <span class="text-xs font-mono uppercase tracking-widest text-[#002bff] block mb-6">{data.impressum.kicker}</span>
-        <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-[.9] mb-16">{data.impressum.title}</h1>
+        {data.impressum.sections.map((section:string[], index:number) => (
+          <article class="py-10 md:py-12 border-b border-black/10 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-12">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-[.16em] text-black/40">0{index + 1}</span>
+              <h2 class="mt-2 text-base md:text-lg font-semibold tracking-tight">{section[0]}</h2>
+            </div>
+            <div class="text-sm md:text-[15px] leading-7 text-black/65 [&_strong]:text-black [&_a]:text-black [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-[#002bff] [&_.legal-placeholder]:text-[#002bff] [&_.legal-placeholder]:font-mono">
+              <div set:html={section[1]}></div>
+            </div>
+          </article>
+        ))}
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/15 border border-black/15">
-        <div class="bg-[#f3f2ee] p-8 md:p-10 md:col-span-2">
-          <span class="text-[10px] font-mono uppercase tracking-widest text-black/40 block mb-5">{data.lang === 'de' ? 'Unternehmen' : 'Company'}</span>
-          <h2 class="text-2xl md:text-3xl font-semibold leading-tight mb-8">{data.impressum.company}</h2>
-          <address class="not-italic text-black/70 leading-relaxed">{data.impressum.address.map((line:string)=><span class="block">{line}</span>)}</address>
-        </div>
-        <div class="bg-[#f3f2ee] p-8 md:p-10">
-          <span class="text-[10px] font-mono uppercase tracking-widest text-black/40 block mb-5">{data.lang === 'de' ? 'Kontakt' : 'Contact'}</span>
-          <div class="space-y-2 text-sm"><a href={`mailto:${data.impressum.email}`} class="block hover:text-[#002bff]">{data.impressum.email}</a><a href={`tel:${data.impressum.phone.replace(/[^+\d]/g,'')}`} class="block hover:text-[#002bff]">{data.impressum.phone}</a></div>
-        </div>
-        <div class="bg-[#f3f2ee] p-8 md:p-10 md:col-span-3 border-t border-black/15">
-          <span class="text-[10px] font-mono uppercase tracking-widest text-black/40 block mb-5">{data.lang === 'de' ? 'Registerangaben' : 'Registration'}</span>
-          <p class="text-sm text-black/70">{data.impressum.register}</p>
-        </div>
+
+      <div class="mt-10 max-w-4xl flex flex-col sm:flex-row justify-between gap-4 text-[10px] font-mono uppercase tracking-widest text-black/35">
+        <span>{data.lang === 'de' ? 'Stand: 2026' : 'Status: 2026'}</span>
+        <a href={data.lang === 'de' ? '/de/' : '/en/'} class="hover:text-[#002bff] transition-colors">{data.lang === 'de' ? 'Zur Website ↗' : 'Back to website ↗'}</a>
       </div>
-      <div class="mt-12 max-w-3xl border-l-2 border-[#002bff] pl-6 text-sm text-black/55 leading-relaxed"><p>{data.impressum.notice}</p></div>
     </div>
   </section>
+
   <Footer data={data}/>
 </main>
