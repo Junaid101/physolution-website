@@ -1,75 +1,44 @@
 ---
+import { getLocalizedPath, getSupportedLanguage } from '../lib/languages';
+
 const { data } = Astro.props;
-const home = data.lang === 'de' ? '/de/' : '/en/';
-const impressum = data.lang === 'de' ? '/de/impressum/' : '/en/impressum/';
+const currentLanguage = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
+const home = getLocalizedPath(currentLanguage, '/');
+const impressum = getLocalizedPath(currentLanguage, '/impressum/');
+const privacy = getLocalizedPath(currentLanguage, '/datenschutz/');
 ---
-
 <footer class="relative overflow-hidden border-t border-black/10 bg-[#e9e7e1] text-[#111]">
-  <div
-    class="absolute inset-0 pointer-events-none opacity-70"
-    style="background-image:linear-gradient(to right,rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.035) 1px,transparent 1px);background-size:100px 100px"
-  ></div>
-
+  <div class="absolute inset-0 pointer-events-none opacity-70" style="background-image:linear-gradient(to right,rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.035) 1px,transparent 1px);background-size:100px 100px"></div>
   <div class="relative max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-12">
       <div class="lg:pr-8">
-        <a href={home} class="inline-flex items-center gap-3 group">
-          <span class="relative flex h-7 w-7 items-center justify-center">
-            <span class="absolute inset-[3px] rotate-45 border border-[#002bff]"></span>
-            <span class="h-2 w-2 rotate-45 bg-[#002bff] group-hover:scale-125 transition-transform"></span>
-          </span>
-          <span class="text-base font-semibold tracking-tight">{data.footer.company}</span>
-        </a>
-
-        <p class="mt-8 max-w-xs text-sm leading-relaxed text-black/55">
-          {data.lang === 'de'
-            ? 'Technische Beratung und Projektmanagement für verlässliche Stammdaten, klare Prozesse und belastbare Datenstrukturen.'
-            : 'Technical consulting and project management for reliable master data, clear processes and robust data structures.'}
-        </p>
+        <a href={home} class="inline-flex items-center gap-3 group"><span class="relative flex h-7 w-7 items-center justify-center"><span class="absolute inset-[3px] rotate-45 border border-[#002bff]"></span><span class="h-2 w-2 rotate-45 bg-[#002bff] group-hover:scale-125 transition-transform"></span></span><span class="text-base font-semibold tracking-tight">{data.footer.company}</span></a>
+        <p class="mt-8 max-w-xs text-sm leading-relaxed text-black/55">{data.footer.description}</p>
       </div>
-
       <div>
-        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">
-          {data.lang === 'de' ? 'Navigation' : 'Navigation'}
-        </span>
+        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">{data.footer.navigationLabel}</span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
           <a href={home + '#services'} class="hover:text-[#002bff] transition-colors">{data.nav[0]}</a>
           <a href={home + '#about'} class="hover:text-[#002bff] transition-colors">{data.nav[1]}</a>
           <a href={home + '#datamodel'} class="hover:text-[#002bff] transition-colors">{data.nav[2]}</a>
-          <a href={home + '#technology'} class="hover:text-[#002bff] transition-colors">{data.lang === 'de' ? 'Technologie' : 'Technology'}</a>
+          <a href={home + '#technology'} class="hover:text-[#002bff] transition-colors">{data.footer.technologyLabel}</a>
           <a href={home + '#contact'} class="hover:text-[#002bff] transition-colors">{data.contact}</a>
         </nav>
       </div>
-
       <div>
-        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">
-          {data.lang === 'de' ? 'Rechtliches' : 'Legal & compliance'}
-        </span>
+        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">{data.footer.legalLabel}</span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
-          <a href={impressum} class="hover:text-[#002bff] transition-colors">{data.lang === 'de' ? 'Impressum' : 'Imprint'}</a>
-          <a href="/datenschutz/" class="hover:text-[#002bff] transition-colors">{data.lang === 'de' ? 'Datenschutz' : 'Privacy policy'}</a>
+          <a href={impressum} class="hover:text-[#002bff] transition-colors">{data.footer.imprintLabel}</a>
+          <a href={privacy} class="hover:text-[#002bff] transition-colors">{data.footer.privacyLabel}</a>
           <a href="https://www.physolution.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#002bff] transition-colors">{data.original}</a>
         </nav>
       </div>
-
       <div>
-        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">
-          {data.lang === 'de' ? 'Standort' : 'Location'}
-        </span>
-        <address class="not-italic text-sm leading-relaxed text-black/60">
-          <span class="block text-black/80">{data.footer.company}</span>
-          {data.footer.address.map((line:string)=><span class="block">{line}</span>)}
-        </address>
-        <div class="mt-6 space-y-2 text-sm font-mono">
-          <a href={`mailto:${data.footer.email}`} class="block text-black/60 hover:text-[#002bff] transition-colors">{data.footer.email}</a>
-          <a href={`tel:${data.footer.phone.replace(/[^+\d]/g,'')}`} class="block text-black/60 hover:text-[#002bff] transition-colors">{data.footer.phone}</a>
-        </div>
+        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">{data.footer.locationLabel}</span>
+        <address class="not-italic text-sm leading-relaxed text-black/60"><span class="block text-black/80">{data.footer.company}</span>{data.footer.address.map((line:string)=><span class="block">{line}</span>)}</address>
+        <div class="mt-6 space-y-2 text-sm font-mono"><a href={`mailto:${data.footer.email}`} class="block text-black/60 hover:text-[#002bff] transition-colors">{data.footer.email}</a><a href={`tel:${data.footer.phone.replace(/[^+\d]/g,'')}`} class="block text-black/60 hover:text-[#002bff] transition-colors">{data.footer.phone}</a></div>
       </div>
     </div>
-
-    <div class="mt-16 pt-6 border-t border-black/10 flex flex-col md:flex-row justify-between gap-4 text-[10px] font-mono uppercase tracking-widest text-black/40">
-      <span>{data.footer.company} © 2026 · {data.footer.address[1]}</span>
-      <a href="#heroSection" class="hover:text-[#002bff] transition-colors">{data.top}</a>
-    </div>
+    <div class="mt-16 pt-6 border-t border-black/10 flex flex-col md:flex-row justify-between gap-4 text-[10px] font-mono uppercase tracking-widest text-black/40"><span>{data.footer.company} © 2026 · {data.footer.address[1]}</span><a href="#heroSection" class="hover:text-[#002bff] transition-colors">{data.top}</a></div>
   </div>
 </footer>
