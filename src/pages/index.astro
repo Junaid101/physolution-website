@@ -1,7 +1,7 @@
 ---
-import { DEFAULT_LANGUAGE, LANGUAGE_LABELS, SUPPORTED_LANGUAGES, getLocalizedPath } from '../lib/languages';
+import { DEFAULT_LANGUAGE, LANGUAGE_NAMES, SUPPORTED_LANGUAGES, getLocalizedPath } from '../lib/languages';
 const languages = SUPPORTED_LANGUAGES.map((language) => ({
-  label: language === DEFAULT_LANGUAGE ? 'English' : 'Deutsch',
+  label: LANGUAGE_NAMES[language],
   href: getLocalizedPath(language, '/'),
 }));
 ---
