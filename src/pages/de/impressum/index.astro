@@ -4,4 +4,10 @@ import Impressum from '../../../components/Impressum.astro';
 import { getContent } from '../../../lib/content';
 const data = getContent('de');
 ---
-<Layout title="PhySolution — Impressum" description="Unternehmens- und Impressumsangaben der PhySolution GmbH."><Impressum data={data}/></Layout>
+
+<Layout
+  title="PhySolution — Impressum"
+  description="Unternehmens- und Impressumsangaben der PhySolution GmbH."
+>
+  <Impressum data={data} />
+</Layout>

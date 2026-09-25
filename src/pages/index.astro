@@ -1,9 +1,46 @@
 ---
-import { DEFAULT_LANGUAGE, LANGUAGE_NAMES, SUPPORTED_LANGUAGES, getLocalizedPath } from '../lib/languages';
+import {
+  DEFAULT_LANGUAGE,
+  LANGUAGE_NAMES,
+  SUPPORTED_LANGUAGES,
+  getLocalizedPath,
+} from '../lib/languages';
 const languages = SUPPORTED_LANGUAGES.map((language) => ({
   label: LANGUAGE_NAMES[language],
   href: getLocalizedPath(language, '/'),
 }));
 ---
-<!doctype html><html lang={DEFAULT_LANGUAGE}><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PhySolution — Choose language</title><link rel="stylesheet" href="/_astro/none.css"></head>
-<body style="margin:0;background:#f3f2ee;color:#111;font-family:Arial,sans-serif"><main style="min-height:100vh;display:grid;place-items:center;padding:2rem;background-image:linear-gradient(to right,rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.05) 1px,transparent 1px);background-size:100px 100px"><div style="width:min(900px,100%);text-align:center"><p style="font:12px monospace;letter-spacing:.15em;text-transform:uppercase;color:#002bff">PhySolution</p><h1 style="font-size:clamp(3rem,8vw,7rem);line-height:.9;letter-spacing:-.06em;margin:1rem 0 3rem">Choose<br>your language.</h1><div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">{languages.map(x=><a href={x.href} style="padding:1rem 2rem;border:1px solid #111;text-decoration:none;color:#111">{x.label}</a>)}</div></div></main></body></html>
+
+<!doctype html>
+<html lang={DEFAULT_LANGUAGE}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PhySolution — Choose language</title>
+    <link rel="stylesheet" href="/_astro/none.css" />
+  </head>
+  <body style="margin:0;background:#f3f2ee;color:#111;font-family:Arial,sans-serif">
+    <main style="min-height:100vh;display:grid;place-items:center;padding:2rem;background-image:linear-gradient(to right,rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.05) 1px,transparent 1px);background-size:100px 100px">
+      <div style="width:min(900px,100%);text-align:center">
+        <p style="font:12px monospace;letter-spacing:.15em;text-transform:uppercase;color:#002bff">
+          PhySolution
+        </p>
+        <h1 style="font-size:clamp(3rem,8vw,7rem);line-height:.9;letter-spacing:-.06em;margin:1rem 0 3rem">
+          Choose
+          <br />
+          your language.
+        </h1>
+        <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
+          {languages.map((x) => (
+            <a
+              href={x.href}
+              style="padding:1rem 2rem;border:1px solid #111;text-decoration:none;color:#111"
+            >
+              {x.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

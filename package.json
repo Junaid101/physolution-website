@@ -1,1 +1,22 @@
-{"name":"physolution-website","private":true,"type":"module","scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview"},"dependencies":{"@tailwindcss/vite":"^4.1.0","astro":"^5.0.0","gsap":"^3.13.0","tailwindcss":"^4.1.0"}}
+{
+  "name": "physolution-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "astro": "^5.0.0",
+    "gsap": "^3.13.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0"
+  }
+}

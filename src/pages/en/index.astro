@@ -4,4 +4,10 @@ import Website from '../../components/Website.astro';
 import { getContent } from '../../lib/content';
 const data = getContent('en');
 ---
-<Layout title="PhySolution — Master Data Management & Data Governance" description={data.hero.intro}><Website data={data}/></Layout>
+
+<Layout
+  title="PhySolution — Master Data Management & Data Governance"
+  description={data.hero.intro}
+>
+  <Website data={data} />
+</Layout>

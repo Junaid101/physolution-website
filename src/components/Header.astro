@@ -4,39 +4,39 @@ import {
   getSupportedLanguage,
   LANGUAGE_LABELS,
   SUPPORTED_LANGUAGES,
-} from "../lib/languages";
+} from '../lib/languages';
 
 const { data } = Astro.props;
-const currentLanguage = getSupportedLanguage(Astro.url.pathname.split("/")[1]);
-const targetLanguage = SUPPORTED_LANGUAGES.find(
-  (language) => language !== currentLanguage,
-)!;
-const home = getLocalizedPath(currentLanguage, "/");
+const currentLanguage = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
+const targetLanguage = SUPPORTED_LANGUAGES.find((language) => language !== currentLanguage)!;
+const home = getLocalizedPath(currentLanguage, '/');
 const switchHref = getLocalizedPath(targetLanguage, Astro.url.pathname);
 ---
 
-<header
-  class="w-full max-w-[1600px] mx-auto px-6 md:px-16 py-8 flex justify-between items-center relative z-50"
->
-  <a href={home} class="font-semibold text-lg tracking-tight">PhySolution</a>
-  <nav
-    class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium"
-  >
-    <a href={home + "#services"} class="hover:text-[#002bff]">{data.nav[0]}</a
-    ><a href={home + "#about"} class="hover:text-[#002bff]">{data.nav[1]}</a><a
-      href={home + "#datamodel"}
-      class="hover:text-[#002bff]">{data.nav[2]}</a
-    ><a
-      href={getLocalizedPath(currentLanguage, "/impressum/")}
-      class="hover:text-[#002bff]">{data.impressum.title}</a
-    >
+<header class="w-full max-w-[1600px] mx-auto px-6 md:px-16 py-8 flex justify-between items-center relative z-50">
+  <a href={home} class="font-semibold text-lg tracking-tight">
+    PhySolution
+  </a>
+  <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium">
+    <a href={home + '#services'} class="hover:text-[#002bff]">
+      {data.nav[0]}
+    </a>
+    <a href={home + '#about'} class="hover:text-[#002bff]">
+      {data.nav[1]}
+    </a>
+    <a href={home + '#datamodel'} class="hover:text-[#002bff]">
+      {data.nav[2]}
+    </a>
+    <a href={getLocalizedPath(currentLanguage, '/impressum/')} class="hover:text-[#002bff]">
+      {data.impressum.title}
+    </a>
   </nav>
-  <div
-    class="flex items-center gap-6 text-xs uppercase tracking-widest font-medium"
-  >
-    <a href={switchHref} hreflang={targetLanguage}
-      >{LANGUAGE_LABELS[targetLanguage]}</a
-    ><a href={home + "#contact"} class="hover:text-[#002bff]"
-      ><span class="text-[#002bff]">▪▪{data.contactLabel}▪▪</span></a>
+  <div class="flex items-center gap-6 text-xs uppercase tracking-widest font-medium">
+    <a href={switchHref} hreflang={targetLanguage}>
+      {LANGUAGE_LABELS[targetLanguage]}
+    </a>
+    <a href={home + '#contact'} class="hover:text-[#002bff]">
+      <span class="text-[#002bff]">▪▪{data.contactLabel}▪▪</span>
+    </a>
   </div>
 </header>
