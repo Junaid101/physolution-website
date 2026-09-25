@@ -1,10 +1,11 @@
 ---
 const {data}=Astro.props;
+const home=data.lang==='de'?'/de/':'/en/';
 ---
 <header class="w-full max-w-[1600px] mx-auto px-6 md:px-16 py-8 flex justify-between items-center relative z-50">
 <a href={data.lang==='de'?'/de/':'/en/'} class="font-semibold text-lg tracking-tight">PhySolution</a>
 <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium">
-<a href="#services" class="hover:text-[#002bff]">{data.nav[0]}</a><a href="#about" class="hover:text-[#002bff]">{data.nav[1]}</a><a href="#datamodel" class="hover:text-[#002bff]">{data.nav[2]}</a><a href={data.lang==='de'?'/de/impressum/':'/en/impressum/'} class="hover:text-[#002bff]">{data.lang==='de'?'Impressum':'Imprint'}</a>
+<a href={home + '#services'} class="hover:text-[#002bff]">{data.nav[0]}</a><a href={home + '#about'} class="hover:text-[#002bff]">{data.nav[1]}</a><a href={home + '#datamodel'} class="hover:text-[#002bff]">{data.nav[2]}</a><a href={data.lang==='de'?'/de/impressum/':'/en/impressum/'} class="hover:text-[#002bff]">{data.lang==='de'?'Impressum':'Imprint'}</a>
 </nav>
-<div class="flex items-center gap-6 text-xs uppercase tracking-widest font-medium"><a href={data.switchHref}>{data.switchLabel}</a><a href="#contact" class="hover:text-[#002bff]">{data.contact} <span class="text-[#002bff]">▪▪<br/>▪▪</span></a></div>
+<div class="flex items-center gap-6 text-xs uppercase tracking-widest font-medium"><a href={data.switchHref}>{data.switchLabel}</a><a href={home + '#contact'} class="hover:text-[#002bff]">{data.contact} <span class="text-[#002bff]">▪▪<br/>▪▪</span></a></div>
 </header>
