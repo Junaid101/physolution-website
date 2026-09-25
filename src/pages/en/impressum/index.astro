@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Impressum from '../../../components/Impressum.astro';
-import {content} from '../../../lib/content';
+import { getContent } from '../../../lib/content';
+const data = getContent('en');
 ---
-<Layout locale="en" title="PhySolution — Imprint" description="Company and legal information for PhySolution."><Impressum data={content.en}/></Layout>
+<Layout title="PhySolution — Imprint" description="Company and legal information for PhySolution."><Impressum data={data}/></Layout>
