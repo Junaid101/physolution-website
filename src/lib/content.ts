@@ -43,3 +43,7 @@ impressum:{kicker:'Legal / Imprint',title:'Imprint',lead:'Legally required compa
 ]},contact:{kicker:'06 / Contact',title:['Let us put','your data','in order.'],intro:'Would you like to optimise master data processes, consolidate datasets or further develop your data governance structure?',cta:'[ Start a conversation ]'},
 footer:{description:'Technical consulting and project management for reliable master data, clear processes and robust data structures.',navigationLabel:'Navigation',legalLabel:'Legal & compliance',locationLabel:'Location',imprintLabel:'Imprint',privacyLabel:'Privacy policy',technologyLabel:'Technology',company:'PHYSOLUTION GMBH',address:['Am Hegwald 13','64521 Groß-Gerau','Germany'],contactLabel:'CONTACT',email:'info@physolution.com',phone:'+49 (0) 6152 9897-0',legal:[['Imprint','/impressum/'],['Privacy policy','/datenschutz/']]},original:'ORIGINAL WEBSITE ↗',top:'BACK TO TOP ↑',websiteLabel:'Back to website ↗',statusLabel:'Status: 2026'}
 } as const;
+
+export function getContent(locale: Locale) {
+  return content[locale];
+}
