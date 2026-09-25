@@ -1,6 +1,16 @@
 ---
-const {data}=Astro.props;
+const { data } = Astro.props;
 ---
-<footer class="w-full max-w-[1600px] mx-auto px-6 md:px-16 py-8 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-black/60 gap-4">
-<div>{data.footer}</div><div class="flex gap-6"><a href="https://www.physolution.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#002bff]">{data.original}</a><a href="#heroSection" class="hover:text-[#002bff]">{data.top}</a></div>
+
+<footer
+  class="w-full max-w-[1600px] mx-auto px-6 md:px-16 py-8 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-black/60 gap-4"
+>
+  <div>{data.footer}</div><div class="flex gap-6">
+    <a
+      href="https://www.physolution.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hover:text-[#002bff]">{data.original}</a
+    ><a href="#heroSection" class="hover:text-[#002bff]">{data.top}</a>
+  </div>
 </footer>
