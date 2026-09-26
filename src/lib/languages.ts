@@ -1,4 +1,4 @@
-export const DEFAULT_LANGUAGE = 'en' as const;
+export const DEFAULT_LANGUAGE = 'de' as const;
 
 export const SUPPORTED_LANGUAGES = ['en', 'de'] as const;
 
