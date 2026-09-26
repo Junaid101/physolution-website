@@ -10,6 +10,7 @@ const { data } = Astro.props;
 const currentLanguage = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
 const home = getLocalizedPath(currentLanguage, '/');
 const contact = getLocalizedPath(currentLanguage, '/contact/');
+const contactSection = home + '#contact';
 const impressum = getLocalizedPath(currentLanguage, '/impressum/');
 ---
 
@@ -47,7 +48,7 @@ const impressum = getLocalizedPath(currentLanguage, '/impressum/');
     </div>
 
     <a
-      href={contact}
+      href={contactSection}
       class="hidden md:inline-flex items-center justify-center border border-[#002bff] text-[#002bff] px-5 py-2.5 rounded-full hover:bg-[#002bff] hover:text-white transition-colors"
     >
       {data.contactLabel}
@@ -55,7 +56,7 @@ const impressum = getLocalizedPath(currentLanguage, '/impressum/');
   </div>
 </header>
   <a
-    href={home + '#contact'}
+    href={contactSection}
     class="md:hidden fixed bottom-5 right-5 z-[60] inline-flex items-center justify-center bg-[#002bff] text-white px-5 py-3 rounded-full text-xs uppercase tracking-widest font-medium shadow-lg"
   >
     {data.contactLabel}
