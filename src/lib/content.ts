@@ -146,6 +146,16 @@ export const content = {
         ],
       ],
     },
+    contactPage: {
+      kicker: 'Kontakt / PhySolution',
+      title: 'Kontakt',
+      lead: 'Sie möchten über ein konkretes Daten-, Stammdaten- oder Prozessproblem sprechen? Sie erreichen uns direkt über die folgenden Kontaktdaten.',
+      company: 'PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH',
+      address: ['Ringstr. 11', '76356 Weingarten (Baden)', 'Deutschland'],
+      phone: '+49 163 4283018',
+      email: 'info@physolution.com',
+      directionsLabel: 'Anfahrt',
+    },
     contact: {
       kicker: '06 / Wenn Daten zum Engpass werden',
       title: ['Wo verlieren Sie', 'heute Zeit', 'durch Daten?'],
@@ -324,6 +334,16 @@ export const content = {
         ],
       ],
     },
+    contactPage: {
+      kicker: 'Contact / PhySolution',
+      title: 'Contact',
+      lead: 'Would you like to discuss a specific data, master data or process challenge? You can reach us directly using the contact details below.',
+      company: 'PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH',
+      address: ['Ringstr. 11', '76356 Weingarten (Baden)', 'Germany'],
+      phone: '+49 163 4283018',
+      email: 'info@physolution.com',
+      directionsLabel: 'Directions',
+    },
     contact: {
       kicker: '06 / When data becomes a bottleneck',
       title: ['Where is data', 'costing you time', 'today?'],
@@ -345,7 +365,7 @@ export const content = {
       address: ['Ringstr. 11', '76356 Weingarten (Baden)', 'Germany'],
       contactLabel: 'CONTACT',
       email: 'info@physolution.com',
-      phone: '+49 (0) 6152 9897-0',
+      phone: '+49 163 4283018',
       legal: [
         ['Imprint', '/impressum/'],
         ['Privacy policy', '/datenschutz/'],
