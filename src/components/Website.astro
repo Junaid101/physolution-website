@@ -326,7 +326,13 @@ const { data } = Astro.props;
     trigger: hero,
     start: 'top top',
     end: () => hero.offsetHeight + work.offsetHeight * 0.75,
-    scrub: true,
+    scrub: 1.2,
+    snap: {
+      snapTo: [0, 1],
+      delay: 0.12,
+      duration: { min: 0.25, max: 0.8 },
+      ease: 'power3.out',
+    },
     invalidateOnRefresh: true,
     onUpdate: (s) => {
       const explosiveProgress = gsap.parseEase('power3.in')(s.progress);
