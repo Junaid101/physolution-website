@@ -12,7 +12,7 @@ export const content = {
       cta: '[ Problem verstehen ]',
     },
     services: {
-      kicker: '02 / Was wir lösen',
+      kicker: '02 / Leistungen',
       title: ['Weniger Reibung.', 'Mehr verlässliche Daten.'],
       intro:
         'Wir arbeiten dort, wo schlechte Stammdaten im Alltag spürbar werden: bei manuellen Prüfungen, doppelten Datensätzen, uneinheitlichen Informationen und Prozessen, die sich nicht sauber über Systeme hinweg abbilden lassen.',
@@ -29,7 +29,7 @@ export const content = {
     },
     about: {
       historyLabel: 'Erfahrung',
-      kicker: '03 / Warum PhySolution',
+      kicker: '03 / Über uns',
       title: ['Nicht nur Daten', 'bereinigen.', 'Probleme lösen.'],
       paragraphs: [
         'Stammdatenprobleme sind selten nur ein technisches Problem. Sie entstehen an den Schnittstellen zwischen Fachbereich, Prozessen, Systemen und Verantwortlichkeiten.',
@@ -44,7 +44,7 @@ export const content = {
       ],
     },
     model: {
-      kicker: '04 / Der Weg zur verlässlichen Datenbasis',
+      kicker: '04 / Datenmodell',
       title: ['Vom Datenproblem', 'zum belastbaren Datensatz.'],
       intro:
         'Der entscheidende Schritt ist nicht, mehr Daten zu sammeln. Es geht darum, aus vorhandenen Daten eine eindeutige, geprüfte und nutzbare Grundlage für Geschäftsprozesse zu machen.',
@@ -157,7 +157,7 @@ export const content = {
       directionsLabel: 'Anfahrt',
     },
     contact: {
-      kicker: '06 / Wenn Daten zum Engpass werden',
+      kicker: '06 / Kontakt',
       title: ['Wo verlieren Sie', 'heute Zeit', 'durch Daten?'],
       intro:
         'Dubletten, manuelle Prüfungen, widersprüchliche Geschäftspartnerdaten oder ein Prozess, der zwischen mehreren Systemen hängen bleibt? Beschreiben Sie uns die Situation. Wir sprechen über das Problem — nicht über eine Standardlösung.',
@@ -200,7 +200,7 @@ export const content = {
       cta: '[ Understand the problem ]',
     },
     services: {
-      kicker: '02 / What we solve',
+      kicker: '02 / Services',
       title: ['Less friction.', 'More reliable data.'],
       intro:
         'We work where poor master data becomes visible in day-to-day operations: manual checks, duplicate records, inconsistent information and processes that do not move cleanly across systems.',
@@ -217,7 +217,7 @@ export const content = {
     },
     about: {
       historyLabel: 'Experience',
-      kicker: '03 / Why PhySolution',
+      kicker: '03 / About',
       title: ['Do not just', 'clean the data.', 'Solve the problem.'],
       paragraphs: [
         'Master data problems are rarely just technical. They emerge at the interfaces between business teams, processes, systems and ownership.',
@@ -232,7 +232,7 @@ export const content = {
       ],
     },
     model: {
-      kicker: '04 / The path to reliable data',
+      kicker: '04 / Data model',
       title: ['From a data problem', 'to a trusted record.'],
       intro:
         'The goal is not to collect more data. It is to turn existing data into an accurate, consistent and usable foundation for business processes.',
@@ -345,7 +345,7 @@ export const content = {
       directionsLabel: 'Directions',
     },
     contact: {
-      kicker: '06 / When data becomes a bottleneck',
+      kicker: '06 / Contact',
       title: ['Where is data', 'costing you time', 'today?'],
       intro:
         'Duplicates, manual checks, conflicting business partner data or a process stuck between systems? Tell us what is happening. We will talk about the problem — not a standard solution.',
