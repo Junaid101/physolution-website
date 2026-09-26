@@ -10,7 +10,7 @@ export default defineConfig({
     locales: SUPPORTED_LANGUAGES,
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: false,
+      redirectToDefaultLocale: true,
     },
   },
   vite: {
