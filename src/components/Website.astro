@@ -322,22 +322,45 @@ const { data } = Astro.props;
       onUpdate: update,
     });
   });
+  const transition = { progress: 0 };
+  const snapProxy = { progress: 0 };
+  let snapTween: gsap.core.Tween | null = null;
+
+  const renderTransition = (progress: number) => {
+    const explosiveProgress = gsap.parseEase('power3.in')(gsap.utils.clamp(0, 1, progress));
+    state.width = gsap.utils.interpolate(90, innerWidth * 2, explosiveProgress);
+    update();
+  };
+
   ScrollTrigger.create({
     trigger: hero,
     start: 'top top',
     end: () => work.offsetTop - hero.offsetTop,
-    scrub: 1.2,
-    snap: {
-      snapTo: [0, 1],
-      delay: 0.12,
-      duration: { min: 0.25, max: 0.8 },
-      ease: 'power3.out',
-    },
+    scrub: 2.2,
     invalidateOnRefresh: true,
     onUpdate: (s) => {
-      const explosiveProgress = gsap.parseEase('power3.in')(s.progress);
-      state.width = gsap.utils.interpolate(90, innerWidth * 2, explosiveProgress);
-      update();
+      if (snapTween?.isActive()) snapTween.kill();
+      transition.progress = s.progress;
+      renderTransition(transition.progress);
+    },
+    onScrubComplete: (s) => {
+      const target = s.progress >= 0.52 ? 1 : 0;
+      const overshoot = target === 1 ? 0.045 : -0.045;
+      snapProxy.progress = s.progress;
+
+      snapTween = gsap.timeline({
+        onUpdate: () => renderTransition(snapProxy.progress),
+      })
+        .to(snapProxy, {
+          progress: target + overshoot,
+          duration: 0.16,
+          ease: 'power3.out',
+        })
+        .to(snapProxy, {
+          progress: target,
+          duration: 0.32,
+          ease: 'elastic.out(1, 0.55)',
+        });
     },
   });
   update();
