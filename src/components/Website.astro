@@ -329,7 +329,8 @@ const { data } = Astro.props;
     scrub: true,
     invalidateOnRefresh: true,
     onUpdate: (s) => {
-      state.width = gsap.utils.interpolate(90, innerWidth * 2, s.progress);
+      const explosiveProgress = gsap.parseEase('power3.in')(s.progress);
+      state.width = gsap.utils.interpolate(90, innerWidth * 2, explosiveProgress);
       update();
     },
   });
