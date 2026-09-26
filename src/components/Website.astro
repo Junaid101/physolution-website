@@ -287,7 +287,8 @@ const { data } = Astro.props;
     workWhite = document.getElementById('workWhiteContent')!;
   heroWhite.innerHTML = heroBlack.innerHTML;
   workWhite.innerHTML = workBlack.innerHTML;
-  const state = { mouseX: innerWidth * 0.55, width: 90 };
+  const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+  const state = { mouseX: innerWidth * (isMobile() ? 0.75 : 0.55), width: 90 };
   function sync(section: HTMLElement, black: HTMLElement, white: HTMLElement) {
     const sr = section.getBoundingClientRect(),
       br = black.getBoundingClientRect(),
@@ -312,6 +313,7 @@ const { data } = Astro.props;
     sync(work, workBlack, workWhite);
   }
   hero.addEventListener('mousemove', (e) => {
+    if (isMobile()) return;
     const r = hero.getBoundingClientRect(),
       p = gsap.utils.clamp(0.05, 0.95, (e.clientX - r.left) / r.width);
     gsap.to(state, {
@@ -335,6 +337,7 @@ const { data } = Astro.props;
   });
   update();
   addEventListener('resize', () => {
+    state.mouseX = innerWidth * (isMobile() ? 0.75 : 0.55);
     ScrollTrigger.refresh();
     update();
   });
