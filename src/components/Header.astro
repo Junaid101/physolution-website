@@ -32,9 +32,26 @@ const switchHref = getLocalizedPath(targetLanguage, Astro.url.pathname);
     </a>
   </nav>
   <div class="flex items-center gap-6 text-xs uppercase tracking-widest font-medium">
-    <a href={switchHref} hreflang={targetLanguage}>
-      {LANGUAGE_LABELS[targetLanguage]}
-    </a>
+    <div class="flex items-center border border-black/20 rounded-sm p-1" aria-label="Language switcher">
+      {SUPPORTED_LANGUAGES.map((language) => (
+        language === currentLanguage ? (
+          <span
+            class="px-2 py-1 bg-black text-white rounded-sm"
+            aria-current="page"
+          >
+            {LANGUAGE_LABELS[language]}
+          </span>
+        ) : (
+          <a
+            href={getLocalizedPath(language, Astro.url.pathname)}
+            hreflang={language}
+            class="px-2 py-1 hover:bg-black/5 rounded-sm transition-colors"
+          >
+            {LANGUAGE_LABELS[language]}
+          </a>
+        )
+      ))}
+    </div>
     <a href={home + '#contact'} class="hover:text-[#002bff]">
       <span class="text-[#002bff]">▪▪{data.contactLabel}▪▪</span>
     </a>
