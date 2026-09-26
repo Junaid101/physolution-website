@@ -2,7 +2,7 @@ export type Locale = 'en' | 'de';
 export const content = {
   de: {
     nav: ['Leistungen', 'Über uns', 'Datenmodell'],
-    contactLabel: 'Kontakt',
+    contactLabel: "Let's Talk",
     hero: {
       kicker: '01 / Wenn Stammdaten zum Problem werden',
       title: ['Datenchaos kostet', 'Zeit.', 'Fehler.', 'Vertrauen.'],
@@ -159,14 +159,15 @@ export const content = {
       navigationLabel: 'Navigation',
       legalLabel: 'Rechtliches',
       locationLabel: 'Standort',
+      directionsLabel: 'Anfahrt',
       imprintLabel: 'Impressum',
       privacyLabel: 'Datenschutz',
       technologyLabel: 'Technologie',
       company: 'PHYSOLUTION GMBH',
-      address: ['Am Hegwald 13', '64521 Groß-Gerau', 'Deutschland'],
-      contactLabel: 'KONTAKT',
+      address: ['Ringstr. 11', '76356 Weingarten (Baden)', 'Deutschland'],
+      contactLabel: "Let's Talk",
       email: 'info@physolution.com',
-      phone: '+49 (0) 6152 9897-0',
+      phone: '+49 163 4283018',
       legal: [
         ['Impressum', '/impressum/'],
         ['Datenschutz', '/datenschutz/'],
@@ -179,7 +180,7 @@ export const content = {
   },
   en: {
     nav: ['Services', 'About', 'Data model'],
-    contactLabel: 'Contact',
+    contactLabel: "Let's Talk",
     hero: {
       kicker: '01 / When master data becomes a problem',
       title: ['Data chaos costs', 'time.', 'accuracy.', 'trust.'],
@@ -336,11 +337,12 @@ export const content = {
       navigationLabel: 'Navigation',
       legalLabel: 'Legal & compliance',
       locationLabel: 'Location',
+      directionsLabel: 'Directions',
       imprintLabel: 'Imprint',
       privacyLabel: 'Privacy policy',
       technologyLabel: 'Technology',
       company: 'PHYSOLUTION GMBH',
-      address: ['Am Hegwald 13', '64521 Groß-Gerau', 'Germany'],
+      address: ['Ringstr. 11', '76356 Weingarten (Baden)', 'Germany'],
       contactLabel: 'CONTACT',
       email: 'info@physolution.com',
       phone: '+49 (0) 6152 9897-0',
