@@ -1,0 +1,11 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Contact from '../../../components/Contact.astro';
+import { getContent } from '../../../lib/content';
+
+const data = getContent('en');
+---
+
+<Layout title="PhySolution — Contact" description={data.contactPage.lead}>
+  <Contact data={data} />
+</Layout>
