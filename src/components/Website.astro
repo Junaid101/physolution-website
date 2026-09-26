@@ -325,7 +325,7 @@ const { data } = Astro.props;
   ScrollTrigger.create({
     trigger: hero,
     start: 'top top',
-    end: () => hero.offsetHeight + work.offsetHeight * 0.75,
+    end: () => work.offsetTop - hero.offsetTop,
     scrub: 1.2,
     snap: {
       snapTo: [0, 1],
