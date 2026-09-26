@@ -261,9 +261,7 @@ const { data } = Astro.props;
         {data.contact.intro}
       </p>
       <a
-        href="https://www.physolution.com/"
-        target="_blank"
-        rel="noopener noreferrer"
+        href={new URL(data.contactPage.title === 'Kontakt' ? '/de/contact/' : '/en/contact/', Astro.url).pathname}
         class="inline-flex items-center justify-center bg-[#002bff] text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl"
       >
         {data.contact.cta}
