@@ -74,14 +74,14 @@ const { data } = Astro.props;
           <p class="text-black/70 text-sm max-w-sm leading-relaxed">{data.services.intro}</p>
         </div>
         <div class="divide-y divide-black/20 border-t border-b border-black/20">
-          {data.services.items.map((item: string[]) => (
+          {data.services.items.map((item) => (
             <div class="py-7 px-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
               <>
-                <span class="text-2xl md:text-4xl font-bold tracking-tight">{item[0]}</span>
+                <span class="text-2xl md:text-4xl font-bold tracking-tight">{item.title}</span>
                 <div class="flex items-center gap-6">
                   <>
                     <span class="text-xs font-mono uppercase opacity-70 hidden sm:block">
-                      {item[1]}
+                      {item.description}
                     </span>
                     <span class="text-xl">↗</span>
                   </>
@@ -124,11 +124,11 @@ const { data } = Astro.props;
           </span>
         </div>
         <div class="space-y-8">
-          {data.about.history.map((x: string[]) => (
+          {data.about.history.map((x) => (
             <div>
               <>
-                <span class="text-primary font-mono text-sm font-bold">{x[0]}</span>
-                <p class="text-sm text-black/65 mt-2">{x[1]}</p>
+                <span class="text-primary font-mono text-sm font-bold">{x.year}</span>
+                <p class="text-sm text-black/65 mt-2">{x.title}</p>
               </>
             </div>
           ))}
@@ -158,193 +158,4 @@ const { data } = Astro.props;
         <p class="text-black/70 text-sm max-w-sm leading-relaxed">{data.model.intro}</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {data.model.cards.map((x: string[]) => (
-          <div class="bg-white/80 p-8 rounded-2xl border border-black/10 shadow-sm">
-            <>
-              <span class="text-xs font-mono text-primary block mb-8">{x[0]}</span>
-              <h3 class="text-xl font-medium mb-3">{x[1]}</h3>
-              <p class="text-black/65 text-sm leading-relaxed">{x[2]}</p>
-            </>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section
-    id="technology"
-    class="px-6 md:px-16 py-28 editorial-grid border-b border-black/10 overflow-hidden"
-  >
-    <div class="container-site">
-      <div class="flex flex-col lg:flex-row justify-between gap-12 mb-16">
-        <div class="max-w-3xl">
-          <span class="section-eyebrow mb-4">
-            {data.tech.kicker}
-          </span>
-          <h2 class="section-title leading-[.95] mb-6">
-            {data.tech.title.map((x: string) => (
-              <>
-                <>
-                  <span>{x}</span>
-                  <br />
-                </>
-              </>
-            ))}
-          </h2>
-          <p class="text-black/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            {data.tech.intro}
-          </p>
-        </div>
-        <div class="lg:w-56 lg:pt-8">
-          <div class="border-t border-black/20 pt-4">
-            <span class="text-xs font-mono text-black/40">TECHNICAL APPROACH</span>
-            <p class="text-sm mt-3 text-black/65">
-              Pragmatic architecture, measurable quality and systems that can grow with the
-              business.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/15 border border-black/15 mb-16">
-        {data.tech.principles.map((x: string[]) => (
-          <article class="bg-[#f3f2ee] p-7 md:p-9 min-h-52">
-            <>
-              <span class="text-xs font-mono text-primary">{x[0]}</span>
-              <h3 class="text-2xl font-semibold mt-8 mb-3">{x[1]}</h3>
-              <p class="text-sm text-black/65 leading-relaxed">{x[2]}</p>
-            </>
-          </article>
-        ))}
-      </div>
-      <div class="flex items-center gap-4 mb-6">
-        <span class="text-xs font-mono uppercase tracking-widest text-black/45">
-          Technology landscape
-        </span>
-        <span class="h-px bg-black/15 flex-1"></span>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {data.tech.items.map((x: string[], i: number) => (
-          <div class="group border border-black/15 bg-white/55 p-6 flex items-center justify-between hover:border-primary transition-colors">
-            <>
-              <div>
-                <>
-                  <span class="text-[10px] font-mono text-primary">{x[0]}</span>
-                  <h3 class="text-base font-medium mt-2">{x[1]}</h3>
-                </>
-              </div>
-              <span class="font-mono text-xs text-black/30 group-hover:text-primary">
-                0{i + 1}
-              </span>
-            </>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="px-6 md:px-16 py-32 editorial-grid">
-    <div class="max-w-5xl mx-auto text-center">
-      <span class="section-eyebrow mb-5">
-        {data.contact.kicker}
-      </span>
-      <h2 class="text-4xl sm:text-7xl font-bold tracking-tight leading-[.95] mb-8">
-        {data.contact.title.map((x: string) => (
-          <>
-            <>
-              <span>{x}</span>
-              <br />
-            </>
-          </>
-        ))}
-      </h2>
-      <p class="text-black/70 max-w-xl mx-auto mb-12 text-base sm:text-lg leading-relaxed">
-        {data.contact.intro}
-      </p>
-      <a
-        href={new URL(data.contactPage.title === 'Kontakt' ? '/de/contact/' : '/en/contact/', Astro.url).pathname}
-        class="button-primary shadow-xl"
-      >
-        {data.contact.cta}
-      </a>
-    </div>
-  </section>
-  <Footer data={data} />
-</main>
-
-<script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
-  const hero = document.getElementById('heroSection')!,
-    work = document.getElementById('services')!,
-    heroBar = document.getElementById('heroBlueBar')!,
-    workBar = document.getElementById('scrollBluePanel')!,
-    heroBlack = document.getElementById('heroBlackContent')!,
-    workBlack = document.getElementById('workBlackContent')!,
-    heroWhite = document.getElementById('heroWhiteContent')!,
-    workWhite = document.getElementById('workWhiteContent')!;
-  heroWhite.innerHTML = heroBlack.innerHTML;
-  workWhite.innerHTML = workBlack.innerHTML;
-  const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
-  const state = { mouseX: innerWidth * (isMobile() ? 0.75 : 0.55), width: 90 };
-  function sync(section: HTMLElement, black: HTMLElement, white: HTMLElement) {
-    const sr = section.getBoundingClientRect(),
-      br = black.getBoundingClientRect(),
-      mx = state.mouseX - br.left,
-      half = state.width / 2;
-    const lp = gsap.utils.clamp(0, 100, ((mx - half) / br.width) * 100),
-      rp = gsap.utils.clamp(0, 100, 100 - ((mx + half) / br.width) * 100);
-    gsap.set(white, {
-      top: br.top - sr.top,
-      left: br.left - sr.left,
-      width: br.width,
-      height: br.height,
-      clipPath: 'inset(0 ' + rp + '% 0 ' + lp + '%)',
-    });
-  }
-  function update() {
-    const hr = hero.getBoundingClientRect(),
-      wr = work.getBoundingClientRect();
-    gsap.set(heroBar, { left: state.mouseX - hr.left, width: state.width });
-    gsap.set(workBar, { left: state.mouseX - wr.left, width: state.width });
-    sync(hero, heroBlack, heroWhite);
-    sync(work, workBlack, workWhite);
-  }
-  hero.addEventListener('mousemove', (e) => {
-    if (isMobile()) return;
-    const r = hero.getBoundingClientRect(),
-      p = gsap.utils.clamp(0.05, 0.95, (e.clientX - r.left) / r.width);
-    gsap.to(state, {
-      mouseX: p * innerWidth,
-      duration: 0.3,
-      ease: 'power3.out',
-      overwrite: true,
-      onUpdate: update,
-    });
-  });
-  ScrollTrigger.create({
-    trigger: hero,
-    start: 'top top',
-    end: () => hero.offsetHeight + work.offsetHeight * 0.75,
-    scrub: true,
-    invalidateOnRefresh: true,
-    onUpdate: (s) => {
-      state.width = gsap.utils.interpolate(90, innerWidth * 2, s.progress);
-      update();
-    },
-  });
-  update();
-  addEventListener('resize', () => {
-    state.mouseX = innerWidth * (isMobile() ? 0.75 : 0.55);
-    ScrollTrigger.refresh();
-    update();
-  });
-  document.fonts?.ready.then(() => {
-    ScrollTrigger.refresh();
-    update();
-  });
-  addEventListener('load', () => {
-    ScrollTrigger.refresh();
-    update();
-  });
-</script>
+        
