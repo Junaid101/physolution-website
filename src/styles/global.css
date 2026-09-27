@@ -69,7 +69,7 @@ body {
   }
   .text-primary { color: var(--color-primary); }
   .bg-primary { background-color: var(--color-primary); }
-  .bg-accent { background-color: var(--color-accent); }
+  .bg-background { background-color: var(--color-background); }
   .border-primary { border-color: var(--color-primary); }
   .link-primary { @apply transition-colors; color: var(--color-foreground); }
   .link-primary:hover { color: var(--color-primary); }
