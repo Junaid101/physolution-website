@@ -1,0 +1,40 @@
+---
+import type { HeroContent, SiteContent } from '../../lib/content';
+
+const { data } = Astro.props as { data: HeroContent; site: SiteContent };
+---
+
+<section
+  id="heroSection"
+  class="relative min-h-[90vh] px-6 md:px-16 pt-12 pb-20 flex flex-col justify-between editorial-grid border-b border-black/10 overflow-hidden"
+>
+  <div id="heroBlueBar" class="blue-bar"></div>
+  <div id="heroBlackContent" class="content-layer">
+    <div class="container-site w-full">
+      <span class="section-eyebrow text-primary mb-6">
+        {data.kicker}
+      </span>
+      <h1 class="text-black text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-[.92] mb-10 max-w-7xl">
+        {data.title.map((x) => (
+          <>
+            <span>{x}</span>
+            <br />
+          </>
+        ))}
+      </h1>
+      <p class="max-w-2xl body-copy sm:text-lg">
+        {data.intro}
+      </p>
+    </div>
+    <div class="container-site w-full flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mt-16">
+      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-black/60">
+        <span class="w-2 h-2 bg-primary"></span>
+        {data.since}
+      </div>
+      <a href="#services" class="text-sm uppercase tracking-widest font-medium hover:text-primary">
+        {data.cta}
+      </a>
+    </div>
+  </div>
+  <div id="heroWhiteContent" class="white-layer"></div>
+</section>
