@@ -13,7 +13,11 @@ export type TechnologyContent = { kicker: string; title: string[]; intro: string
 export type ContactPageContent = { kicker: string; title: string; lead: string; company: string; address: string[]; phone: string; email: string; directionsLabel: string };
 export type ContactContent = { kicker: string; title: string[]; intro: string; cta: string };
 export type FooterContent = { description: string; navigationLabel: string; legalLabel: string; locationLabel: string; directionsLabel: string; imprintLabel: string; privacyLabel: string; technologyLabel: string; company: string; address: string[]; contactLabel: string; email: string; phone: string; legal: { label: string; path: string }[] };
-export type ImpressumSection = { title: string; html: string };
+export type LegalBlock =
+  | { type: 'text'; value: string }
+  | { type: 'field'; label: string; value: string }
+  | { type: 'link'; label: string; value: string; href: string };
+export type ImpressumSection = { title: string; blocks: LegalBlock[] };
 export type ImpressumContent = { kicker: string; title: string; lead: string; sections: ImpressumSection[] };
 export type SiteContent = { nav: { services: string; about: string; dataModel: string }; contactLabel: string; hero: HeroContent; services: ServicesContent; about: AboutContent; model: DataModelContent; tech: TechnologyContent; impressum: ImpressumContent; contactPage: ContactPageContent; contact: ContactContent; footer: FooterContent; original: string; top: string; websiteLabel: string; statusLabel: string };
 export const content = {
@@ -95,44 +99,73 @@ export const content = {
       kicker: 'Legal / Impressum',
       title: 'Impressum',
       lead: 'Gesetzlich erforderliche Angaben zum Unternehmen, Betreiber dieser Website und zur rechtlichen Verantwortung der PhySolution GmbH.',
-      sections: [
-        [
-          'Unternehmen / Betreiber',
-          '<strong>PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH</strong><br>Ringstr. 11<br>76356 Weingarten (Baden)',
-        ],
-        [
-          'Kontakt',
-          '<strong>Telefon:</strong> <a href="tel:+491634283018">+49 163 4283018</a><br><strong>E-Mail:</strong> <a href="mailto:info@physolution.com">info@physolution.com</a><br><strong>Website:</strong> <a href="/de/">www.physolution.com</a>',
-        ],
-        [
-          'Handelsregister & Unternehmensform',
-          'Eingetragen im Handelsregister.<br><strong>Registergericht:</strong> Amtsgericht Mannheim<br><strong>Registernummer:</strong> HRB 719194<br><strong>Rechtsform:</strong> Gesellschaft mit beschränkter Haftung (GmbH)',
-        ],
-        { category: 'Vertretungsberechtigung', label: '<strong>Geschäftsführer:</strong> Dr. Michael Speckmann' },
-        [
-          'Umsatzsteuer-Identifikationsnummer',
-          '<strong>USt-IdNr.:</strong> DE177396297<br><strong>St-Nr.:</strong> 34 416 17391',
-        ],
-        [
-          'Verantwortlich für den Inhalt',
-          'Verantwortlich für die Inhalte dieser Website ist die PhySolution GmbH, vertreten durch die jeweils vertretungsberechtigte Geschäftsführung.',
-        ],
-        [
-          'Streitbeilegung',
-          'Wir sind nicht verpflichtet und grundsätzlich nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Soweit gesetzlich vorgeschrieben, informieren wir über die zuständige Verbraucherschlichtungsstelle und unsere Teilnahmebereitschaft nach den jeweils geltenden gesetzlichen Bestimmungen.',
-        ],
-        [
-          'Haftung für Inhalte',
-          'Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen gesetzlichen Vorschriften verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt.',
-        ],
-        [
-          'Haftung für Links',
-          'Unsere Website kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte haben wir keinen Einfluss und übernehmen für diese externen Inhalte keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir entsprechende Links nach Prüfung entfernen.',
-        ],
-        [
-          'Urheberrecht',
-          'Die durch die Betreiber dieser Website erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers. Soweit Inhalte nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.',
-        ],
+sections: [
+        {
+          title: 'Unternehmen / Betreiber',
+          blocks: [
+            { type: 'field', label: 'Unternehmen', value: 'PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH' },
+            { type: 'text', value: 'Ringstr. 11' },
+            { type: 'text', value: '76356 Weingarten (Baden)' },
+          ],
+        },
+        {
+          title: 'Kontakt',
+          blocks: [
+            { type: 'link', label: 'Telefon', value: '+49 163 4283018', href: 'tel:+491634283018' },
+            { type: 'link', label: 'E-Mail', value: 'info@physolution.com', href: 'mailto:info@physolution.com' },
+            { type: 'link', label: 'Website', value: 'www.physolution.com', href: '/de/' },
+          ],
+        },
+        {
+          title: 'Handelsregister & Unternehmensform',
+          blocks: [
+            { type: 'text', value: 'Eingetragen im Handelsregister.' },
+            { type: 'field', label: 'Registergericht', value: 'Amtsgericht Mannheim' },
+            { type: 'field', label: 'Registernummer', value: 'HRB 719194' },
+            { type: 'field', label: 'Rechtsform', value: 'Gesellschaft mit beschränkter Haftung (GmbH)' },
+          ],
+        },
+        {
+          title: 'Vertretungsberechtigung',
+          blocks: [{ type: 'field', label: 'Geschäftsführer', value: 'Dr. Michael Speckmann' }],
+        },
+        {
+          title: 'Umsatzsteuer-Identifikationsnummer',
+          blocks: [
+            { type: 'field', label: 'USt-IdNr.', value: 'DE177396297' },
+            { type: 'field', label: 'St-Nr.', value: '34 416 17391' },
+          ],
+        },
+        {
+          title: 'Verantwortlich für den Inhalt',
+          blocks: [
+            { type: 'text', value: 'Verantwortlich für die Inhalte dieser Website ist die PhySolution GmbH, vertreten durch die jeweils vertretungsberechtigte Geschäftsführung.' },
+          ],
+        },
+        {
+          title: 'Streitbeilegung',
+          blocks: [
+            { type: 'text', value: 'Wir sind nicht verpflichtet und grundsätzlich nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Soweit gesetzlich vorgeschrieben, informieren wir über die zuständige Verbraucherschlichtungsstelle und unsere Teilnahmebereitschaft nach den jeweils geltenden gesetzlichen Bestimmungen.' },
+          ],
+        },
+        {
+          title: 'Haftung für Inhalte',
+          blocks: [
+            { type: 'text', value: 'Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen gesetzlichen Vorschriften verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt.' },
+          ],
+        },
+        {
+          title: 'Haftung für Links',
+          blocks: [
+            { type: 'text', value: 'Unsere Website kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte haben wir keinen Einfluss und übernehmen für diese externen Inhalte keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir entsprechende Links nach Prüfung entfernen.' },
+          ],
+        },
+        {
+          title: 'Urheberrecht',
+          blocks: [
+            { type: 'text', value: 'Die durch die Betreiber dieser Website erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers. Soweit Inhalte nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.' },
+          ],
+        },
       ],
     },
     contactPage: {
@@ -255,44 +288,73 @@ export const content = {
       kicker: 'Legal / Imprint',
       title: 'Imprint',
       lead: 'Legally required company information, website operator details and information on the legal responsibility of PhySolution GmbH.',
-      sections: [
-        [
-          'Company / Website operator',
-          '<strong>PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH</strong><br>Ringstr. 11<br>76356 Weingarten (Baden)',
-        ],
-        [
-          'Contact',
-          '<strong>Phone:</strong> <a href="tel:+491634283018">+49 163 4283018</a><br><strong>Email:</strong> <a href="mailto:info@physolution.com">info@physolution.com</a><br><strong>Website:</strong> <a href="/en/">www.physolution.com</a>',
-        ],
-        [
-          'Commercial Register & Corporate Structure',
-          'Registered in the commercial register.<br><strong>Register court:</strong> Mannheim Local Court (Amtsgericht Mannheim)<br><strong>Registration number:</strong> HRB 719194<br><strong>Legal form:</strong> German limited liability company (GmbH)',
-        ],
-        { category: 'Authorised representatives', label: '<strong>Managing director:</strong> Dr. Michael Speckmann' },
-        [
-          'VAT identification number',
-          '<strong>VAT ID:</strong> DE177396297<br><strong>Tax number:</strong> 34 416 17391',
-        ],
-        [
-          'Responsible for website content',
-          'The content of this website is the responsibility of PhySolution GmbH, represented by its authorised managing director(s).',
-        ],
-        [
-          'Dispute resolution',
-          'We are neither legally required nor generally willing to participate in dispute resolution proceedings before a consumer arbitration board. Where legally required, we provide the information on the competent consumer arbitration body and our willingness to participate in accordance with applicable law.',
-        ],
-        [
-          'Liability for content',
-          'As a service provider, we are responsible for our own content on these pages under general statutory law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating unlawful activity. Statutory obligations to remove or block information remain unaffected.',
-        ],
-        [
-          'Liability for links',
-          'Our website may contain links to external third-party websites. We have no influence over their content and cannot accept liability for external content. The respective provider or operator is responsible for the content of linked pages. Upon becoming aware of legal infringements, we will review and remove affected links where appropriate.',
-        ],
-        [
-          'Copyright & intellectual property',
-          'Content and works created by the website operator are subject to German copyright law. Reproduction, processing, distribution or other exploitation beyond the limits of copyright law requires prior written consent from the respective rights holder. Third-party copyrights are respected where content was not created by the operator.',
-        ],
+sections: [
+        {
+          title: 'Company / Website operator',
+          blocks: [
+            { type: 'field', label: 'Company', value: 'PhySolution - Technische Unternehmensberatung und Projektmanagement GmbH' },
+            { type: 'text', value: 'Ringstr. 11' },
+            { type: 'text', value: '76356 Weingarten (Baden)' },
+          ],
+        },
+        {
+          title: 'Contact',
+          blocks: [
+            { type: 'link', label: 'Phone', value: '+49 163 4283018', href: 'tel:+491634283018' },
+            { type: 'link', label: 'Email', value: 'info@physolution.com', href: 'mailto:info@physolution.com' },
+            { type: 'link', label: 'Website', value: 'www.physolution.com', href: '/en/' },
+          ],
+        },
+        {
+          title: 'Commercial Register & Corporate Structure',
+          blocks: [
+            { type: 'text', value: 'Registered in the commercial register.' },
+            { type: 'field', label: 'Register court', value: 'Mannheim Local Court (Amtsgericht Mannheim)' },
+            { type: 'field', label: 'Registration number', value: 'HRB 719194' },
+            { type: 'field', label: 'Legal form', value: 'German limited liability company (GmbH)' },
+          ],
+        },
+        {
+          title: 'Authorised representatives',
+          blocks: [{ type: 'field', label: 'Managing director', value: 'Dr. Michael Speckmann' }],
+        },
+        {
+          title: 'VAT identification number',
+          blocks: [
+            { type: 'field', label: 'VAT ID', value: 'DE177396297' },
+            { type: 'field', label: 'Tax number', value: '34 416 17391' },
+          ],
+        },
+        {
+          title: 'Responsible for website content',
+          blocks: [
+            { type: 'text', value: 'The content of this website is the responsibility of PhySolution GmbH, represented by its authorised managing director(s).' },
+          ],
+        },
+        {
+          title: 'Dispute resolution',
+          blocks: [
+            { type: 'text', value: 'We are neither legally required nor generally willing to participate in dispute resolution proceedings before a consumer arbitration board. Where legally required, we provide the information on the competent consumer arbitration body and our willingness to participate in accordance with applicable law.' },
+          ],
+        },
+        {
+          title: 'Liability for content',
+          blocks: [
+            { type: 'text', value: 'As a service provider, we are responsible for our own content on these pages under general statutory law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating unlawful activity. Statutory obligations to remove or block information remain unaffected.' },
+          ],
+        },
+        {
+          title: 'Liability for links',
+          blocks: [
+            { type: 'text', value: 'Our website may contain links to external third-party websites. We have no influence over their content and cannot accept liability for external content. The respective provider or operator is responsible for the content of linked pages. Upon becoming aware of legal infringements, we will review and remove affected links where appropriate.' },
+          ],
+        },
+        {
+          title: 'Copyright & intellectual property',
+          blocks: [
+            { type: 'text', value: 'Content and works created by the website operator are subject to German copyright law. Reproduction, processing, distribution or other exploitation beyond the limits of copyright law requires prior written consent from the respective rights holder. Third-party copyrights are respected where content was not created by the operator.' },
+          ],
+        },
       ],
     },
     contactPage: {
