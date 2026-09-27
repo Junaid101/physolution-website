@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Website from '../../components/Website.astro';
+import Home from '../../components/Home.astro';
 import { getContent } from '../../lib/content';
 const data = getContent('en');
 ---
@@ -10,5 +10,5 @@ const data = getContent('en');
   title="PhySolution — Master Data Management & Data Governance"
   description={data.hero.intro}
 >
-  <Website data={data} locale="en" />
+  <Home data={data} locale="en" />
 </Layout>
