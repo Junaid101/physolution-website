@@ -10,17 +10,17 @@ const mapsUrl =
 <main class="min-h-screen relative bg-[#f3f2ee] text-[#111]">
   <Header data={data} />
 
-  <section class="px-6 md:px-16 pt-16 pb-28 md:pt-24 md:pb-36">
-    <div class="max-w-7xl mx-auto">
-      <span class="text-xs font-mono uppercase tracking-widest text-[#002bff] block mb-6">
+  <section class="section-padding pt-16 pb-28 md:pt-24 md:pb-36">
+    <div class="container-site">
+      <span class="section-eyebrow text-[#002bff] mb-6">
         {data.contactPage.kicker}
       </span>
       <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_.8fr] gap-16 lg:gap-24">
         <div>
-          <h1 class="text-5xl md:text-6xl font-black tracking-tighter leading-[.88]">
+          <h1 class="page-title">
             {data.contactPage.title}
           </h1>
-          <p class="max-w-2xl mt-10 text-base md:text-lg leading-relaxed text-black/65">
+          <p class="max-w-2xl mt-10 body-copy">
             {data.contactPage.lead}
           </p>
         </div>
@@ -40,13 +40,13 @@ const mapsUrl =
             <div class="space-y-3">
               <a
                 href={`tel:${data.contactPage.phone.replace(/[^+\d]/g, '')}`}
-                class="block hover:text-[#002bff] transition-colors"
+                class="block link-primary"
               >
                 {data.contactPage.phone}
               </a>
               <a
                 href={`mailto:${data.contactPage.email}`}
-                class="block hover:text-[#002bff] transition-colors"
+                class="block link-primary"
               >
                 {data.contactPage.email}
               </a>
