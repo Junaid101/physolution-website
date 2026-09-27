@@ -7,7 +7,7 @@ const currentLanguage = getSupportedLanguage(locale);
 ---
 
 <main id="mainWebsite" class="min-h-screen relative">
-  <Header data={data} />
+  <Header data={data} locale={locale} />
 
   <section
     id="heroSection"
@@ -270,7 +270,7 @@ const currentLanguage = getSupportedLanguage(locale);
       </a>
     </div>
   </section>
-  <Footer data={data} />
+  <Footer data={data} locale={locale} />
 </main>
 
 <script>
