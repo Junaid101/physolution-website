@@ -93,13 +93,14 @@ The homepage currently contains the complete page structure as well as the anima
 
 ### 1.7 Simplify Website.astro
 
-- [ ] After extraction, keep `Website.astro` as the homepage composition layer.
+- [ ] After extraction, keep `Website.astro` as the homepage composition layer but rename it to `Home.astro`
 - [ ] It should primarily:
   - receive page data,
+  - render the Header,
   - render the home components in order,
   - render the Footer,
   - retain the existing animation script unchanged.
-- [ ] Do not move the current animation JavaScript during this task.
+- [ ] You can safely move the animation JavaScript during this task as long as it doesnt break.
 - [ ] Do not redesign the animation architecture.
 
 Target structure:
@@ -107,6 +108,7 @@ Target structure:
 ```text
 Website.astro
   -> Hero
+  -> HeroAnimationHelper
   -> Services
   -> About
   -> DataModel
