@@ -435,7 +435,7 @@ Prevent `src/lib/content.ts` from becoming difficult to navigate as the site gro
 
 ### 8.1 Review `Layout.astro`
 
-- [ ] Confirm document-level responsibilities stay in the layout:
+- [x] Confirm document-level responsibilities stay in the layout:
   - `<html>`
   - language attribute
   - metadata
@@ -445,7 +445,7 @@ Prevent `src/lib/content.ts` from becoming difficult to navigate as the site gro
 
 ### 8.2 Review locale handling
 
-- [ ] Determine whether the locale can be resolved once in the layout/page boundary.
+- [x] Determine whether the locale can be resolved once in the layout/page boundary.
 - [ ] Avoid duplicating locale extraction throughout the component tree.
 
 ### 8.3 Keep pages thin
