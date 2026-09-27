@@ -10,7 +10,7 @@ const sections = data.impressum.sections;
 ---
 
 <main class="min-h-screen relative bg-[#f3f2ee]">
-  <Header data={data} />
+  <Header data={data} locale={locale} />
   <section class="section-padding pt-16 md:pt-24 pb-24 md:pb-32 border-t border-black/10">
     <div class="container-site">
       <header class="max-w-4xl pb-16 md:pb-24 border-b border-black/10">
@@ -49,5 +49,5 @@ const sections = data.impressum.sections;
       </div>
     </div>
   </section>
-  <Footer data={data} />
+  <Footer data={data} locale={locale} />
 </main>
