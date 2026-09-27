@@ -1,0 +1,61 @@
+---
+import type { TechnologyContent } from '../../lib/content';
+
+const { data } = Astro.props as { data: TechnologyContent };
+---
+
+<section
+  id="technology"
+  class="px-6 md:px-16 py-28 editorial-grid border-b border-black/10 overflow-hidden"
+>
+  <div class="container-site">
+    <div class="flex flex-col lg:flex-row justify-between gap-12 mb-16">
+      <div class="max-w-3xl">
+        <span class="section-eyebrow mb-4">{data.kicker}</span>
+        <h2 class="section-title leading-[.95] mb-6">
+          {data.title.map((x) => (
+            <>
+              <span>{x}</span>
+              <br />
+            </>
+          ))}
+        </h2>
+        <p class="text-black/70 text-base md:text-lg leading-relaxed max-w-2xl">
+          {data.intro}
+        </p>
+      </div>
+      <div class="lg:w-56 lg:pt-8">
+        <div class="border-t border-black/20 pt-4">
+          <span class="text-xs font-mono text-black/40">TECHNICAL APPROACH</span>
+          <p class="text-sm mt-3 text-black/65">
+            Pragmatic architecture, measurable quality and systems that can grow with the business.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/15 border border-black/15 mb-16">
+      {data.principles.map((principle) => (
+        <article class="bg-[#f3f2ee] p-7 md:p-9 min-h-52">
+          <span class="text-xs font-mono text-primary">{principle.step}</span>
+          <h3 class="text-2xl font-semibold mt-8 mb-3">{principle.title}</h3>
+          <p class="text-sm text-black/65 leading-relaxed">{principle.description}</p>
+        </article>
+      ))}
+    </div>
+    <div class="flex items-center gap-4 mb-6">
+      <span class="text-xs font-mono uppercase tracking-widest text-black/45">Technology landscape</span>
+      <span class="h-px bg-black/15 flex-1"></span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {data.items.map((item, i) => (
+        <div class="group border border-black/15 bg-white/55 p-6 flex items-center justify-between hover:border-primary transition-colors">
+          <div>
+            <span class="text-[10px] font-mono text-primary">{item.category}</span>
+            <h3 class="text-base font-medium mt-2">{item.label}</h3>
+          </div>
+          <span class="font-mono text-xs text-black/30 group-hover:text-primary">0{i + 1}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
