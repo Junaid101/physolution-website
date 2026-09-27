@@ -14,7 +14,7 @@ const sections = data.impressum.sections;
   <section class="section-padding pt-16 md:pt-24 pb-24 md:pb-32 border-t border-black/10">
     <div class="container-site">
       <header class="max-w-4xl pb-16 md:pb-24 border-b border-black/10">
-        <span class="section-eyebrow text-[#002bff] mb-6 tracking-[.18em]">
+        <span class="section-eyebrow text-primary mb-6 tracking-[.18em]">
           {data.impressum.kicker}
         </span>
         <h1 class="page-title mb-8">
@@ -35,7 +35,7 @@ const sections = data.impressum.sections;
                 <h2 class="mt-2 text-base md:text-lg font-semibold tracking-tight">{section[0]}</h2>
               </>
             </div>
-            <div class="text-sm md:text-[15px] leading-7 text-black/65 [&_strong]:text-black [&_a]:text-black [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-[#002bff] [&_.legal-placeholder]:text-[#002bff] [&_.legal-placeholder]:font-mono">
+            <div class="text-sm md:text-[15px] leading-7 text-black/65 [&_strong]:text-black [&_a]:text-black [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary [&_.legal-placeholder]:text-primary [&_.legal-placeholder]:font-mono">
               <div set:html={section[1]} />
             </div>
           </article>
