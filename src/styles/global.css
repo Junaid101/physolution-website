@@ -1,8 +1,9 @@
 @import 'tailwindcss';
 :root {
-  --bg: #f3f2ee;
-  --blue: #002bff;
-  --text: #111;
+  --color-background: #f3f2ee;
+  --color-primary: #002bff;
+  --color-accent: #e9e7e1;
+  --color-text: #111;
   --border: rgb(17 17 17 / 10%);
   --border-strong: rgb(17 17 17 / 20%);
   --muted: rgb(17 17 17 / 65%);
@@ -16,12 +17,12 @@ html {
 }
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--color-background);
+  color: var(--color-text);
   font-family: 'Geist', sans-serif;
 }
 ::selection {
-  background: var(--blue);
+  background: var(--color-primary);
   color: #fff;
 }
 .editorial-grid {
@@ -35,7 +36,7 @@ body {
   top: 0;
   bottom: 0;
   transform: translateX(-50%);
-  background: var(--blue);
+  background: var(--color-primary);
   pointer-events: none;
   z-index: 10;
   will-change: left, width;
@@ -66,10 +67,17 @@ body {
   .container-site { @apply max-w-7xl mx-auto; }
   .section-padding { @apply px-6 md:px-16; }
   .section-eyebrow { @apply text-xs font-mono uppercase tracking-widest text-black/50 block; }
+  .text-primary { color: var(--color-primary); }
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-accent { background-color: var(--color-accent); }
+  .border-primary { border-color: var(--color-primary); }
+  .link-primary { @apply transition-colors; color: var(--color-text); }
+  .link-primary:hover { color: var(--color-primary); }
   .section-title { @apply text-4xl md:text-6xl font-bold tracking-tight; }
   .page-title { @apply text-5xl md:text-6xl font-black tracking-tighter leading-[.88]; }
   .body-copy { @apply text-base md:text-lg leading-relaxed text-black/65; }
-  .link-primary { @apply hover:text-[#002bff] transition-colors; }
-  .button-primary { @apply inline-flex items-center justify-center bg-[#002bff] text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest hover:bg-blue-700 transition-colors; }
-  .button-outline { @apply inline-flex items-center justify-center border border-[#002bff] text-[#002bff] px-5 py-2.5 rounded-full hover:bg-[#002bff] hover:text-white transition-colors; }
+  .button-primary { @apply inline-flex items-center justify-center text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest transition-colors; background-color: var(--color-primary); }
+  .button-primary:hover { filter: brightness(0.9); }
+  .button-outline { @apply inline-flex items-center justify-center px-5 py-2.5 rounded-full transition-colors; border: 1px solid var(--color-primary); color: var(--color-primary); }
+  .button-outline:hover { background-color: var(--color-primary); color: white; }
 }
