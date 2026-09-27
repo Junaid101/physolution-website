@@ -30,18 +30,18 @@ export const content = {
     },
     services: {
       kicker: '02 / Leistungen',
-      title: { category: 'Weniger Reibung.', label: 'Mehr verlässliche Daten.' },
+      title: ['Weniger Reibung.', 'Mehr verlässliche Daten.'],
       intro:
         'Wir arbeiten dort, wo schlechte Stammdaten im Alltag spürbar werden: bei manuellen Prüfungen, doppelten Datensätzen, uneinheitlichen Informationen und Prozessen, die sich nicht sauber über Systeme hinweg abbilden lassen.',
       items: [
         { title: 'Geschäftspartner-Stammdaten', description: 'Eine verlässliche Datenbasis schaffen' },
-        { category: 'Data Quality & MDM', label: 'Fehler erkennen und Qualität sichern' },
-        { category: 'Matching & Golden Records', label: 'Dubletten zusammenführen' },
-        { category: 'Stammdatenkonsolidierung', label: 'Verteilte Bestände vereinheitlichen' },
-        { category: 'Data Governance', label: 'Regeln und Verantwortung verankern' },
-        { category: 'ERP & Web Integration', label: 'Daten sauber in Prozesse bringen' },
-        { category: 'Analytics & Reporting', label: 'Daten verständlich nutzbar machen' },
-        { category: 'Identität & Risikodaten', label: 'Prüfungen und Entscheidungen unterstützen' },
+        { title: 'Data Quality & MDM', description: 'Fehler erkennen und Qualität sichern' },
+        { title: 'Matching & Golden Records', description: 'Dubletten zusammenführen' },
+        { title: 'Stammdatenkonsolidierung', description: 'Verteilte Bestände vereinheitlichen' },
+        { title: 'Data Governance', description: 'Regeln und Verantwortung verankern' },
+        { title: 'ERP & Web Integration', description: 'Daten sauber in Prozesse bringen' },
+        { title: 'Analytics & Reporting', description: 'Daten verständlich nutzbar machen' },
+        { title: 'Identität & Risikodaten', description: 'Prüfungen und Entscheidungen unterstützen' },
       ],
     },
     about: {
@@ -56,13 +56,13 @@ export const content = {
       ],
       history: [
         { year: '1996', description: 'Gründung der PhySolution GmbH.' },
-        { category: '1997', label: 'Technologie- und Experten-Datenbanken als frühe Datenprojekte.' },
-        { category: 'Heute', label: 'Beratung und Umsetzung für Stammdaten und Geschäftspartnerdaten.' },
+        { year: '1997', description: 'Technologie- und Experten-Datenbanken als frühe Datenprojekte.' },
+        { year: 'Heute', description: 'Beratung und Umsetzung für Stammdaten und Geschäftspartnerdaten.' },
       ],
     },
     model: {
       kicker: '04 / Datenmodell',
-      title: { category: 'Vom Datenproblem', label: 'zum belastbaren Datensatz.' },
+      title: ['Vom Datenproblem', 'zum belastbaren Datensatz.'],
       intro:
         'Der entscheidende Schritt ist nicht, mehr Daten zu sammeln. Es geht darum, aus vorhandenen Daten eine eindeutige, geprüfte und nutzbare Grundlage für Geschäftsprozesse zu machen.',
       cards: [
@@ -74,7 +74,7 @@ export const content = {
     },
     tech: {
       kicker: '05 / Technologie',
-      title: { category: 'Technik muss', label: 'das Problem lösen.' },
+      title: ['Technik muss', 'das Problem lösen.'],
       intro:
         'Wir starten nicht mit einem Tool, sondern mit dem konkreten Daten- und Prozessproblem. Bestehende Systeme werden eingebunden, Datenflüsse nachvollziehbar gemacht und technische Lösungen so aufgebaut, dass sie im Alltag betreibbar bleiben.',
       principles: [
@@ -83,7 +83,7 @@ export const content = {
         { step: '03', title: 'Für den Alltag bauen', description: 'Datenflüsse und Lösungen müssen verständlich, prüfbar und gemeinsam mit den Fachbereichen weiterentwickelbar sein.' },
       ],
       items: [
-        { title: 'DATA', description: 'Master Data Management' },
+        { category: 'DATA', label: 'Master Data Management' },
         { category: 'QUALITY', label: 'Data Quality & Matching' },
         { category: 'ANALYTICS', label: 'Power BI & Analytics' },
         { category: 'DATABASE', label: 'MS-SQL & Datenbanken' },
@@ -168,8 +168,8 @@ export const content = {
       email: 'info@physolution.com',
       phone: '+49 163 4283018',
       legal: [
-        { category: 'Impressum', label: '/impressum/' },
-        { category: 'Datenschutz', label: '/datenschutz/' },
+        { label: 'Impressum', path: '/impressum/' },
+        { label: 'Datenschutz', path: '/datenschutz/' },
       ],
     },
     original: 'ORIGINAL WEBSITE ↗',
@@ -190,7 +190,7 @@ export const content = {
     },
     services: {
       kicker: '02 / Services',
-      title: { category: 'Less friction.', label: 'More reliable data.' },
+      title: ['Less friction.', 'More reliable data.'],
       intro:
         'We work where poor master data becomes visible in day-to-day operations: manual checks, duplicate records, inconsistent information and processes that do not move cleanly across systems.',
       items: [
@@ -216,13 +216,13 @@ export const content = {
       ],
       history: [
         { year: '1996', description: 'PhySolution GmbH founded.' },
-        { category: '1997', label: 'Early technology and expert database projects.' },
-        { category: 'Today', label: 'Consulting and implementation for master and business partner data.' },
+        { year: '1997', description: 'Early technology and expert database projects.' },
+        { year: 'Today', description: 'Consulting and implementation for master and business partner data.' },
       ],
     },
     model: {
       kicker: '04 / Data model',
-      title: { category: 'From a data problem', label: 'to a trusted record.' },
+      title: ['From a data problem', 'to a trusted record.'],
       intro:
         'The goal is not to collect more data. It is to turn existing data into an accurate, consistent and usable foundation for business processes.',
       cards: [
@@ -234,7 +234,7 @@ export const content = {
     },
     tech: {
       kicker: '05 / Technology',
-      title: { category: 'Technology should', label: 'solve the problem.' },
+      title: ['Technology should', 'solve the problem.'],
       intro:
         'We do not start with a tool. We start with the data and process problem. Existing systems are connected, data flows become traceable and technical solutions are built to remain practical to operate.',
       principles: [
@@ -243,7 +243,7 @@ export const content = {
         { step: '03', title: 'Build for real work', description: 'Data flows and solutions should remain understandable, auditable and adaptable with the business.' },
       ],
       items: [
-        { title: 'DATA', description: 'Master Data Management' },
+        { category: 'DATA', label: 'Master Data Management' },
         { category: 'QUALITY', label: 'Data Quality & Matching' },
         { category: 'ANALYTICS', label: 'Power BI & Analytics' },
         { category: 'DATABASE', label: 'MS-SQL & Databases' },
@@ -328,8 +328,8 @@ export const content = {
       email: 'info@physolution.com',
       phone: '+49 163 4283018',
       legal: [
-        { category: 'Imprint', label: '/impressum/' },
-        { category: 'Privacy policy', label: '/datenschutz/' },
+        { label: 'Imprint', path: '/impressum/' },
+        { label: 'Privacy policy', path: '/datenschutz/' },
       ],
     },
     original: 'ORIGINAL WEBSITE ↗',
