@@ -1,8 +1,9 @@
 ---
 import Header from './Header.astro';
 import Footer from './Footer.astro';
+import type { Language } from '../lib/languages';
 
-const { data, locale } = Astro.props;
+const { data, locale } = Astro.props as { data: import('../lib/content').SiteContent; locale: Language };
 const mapsUrl =
   'https://www.google.com/maps/search/?api=1&query=Ringstr.+11%2C+76356+Weingarten+%28Baden%29';
 ---
