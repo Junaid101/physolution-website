@@ -29,13 +29,13 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
         <span class="section-eyebrow mb-7">{data.footer.navigationLabel}</span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
           <a href={home + '#services'} class="link-primary">
-            {data.nav[0]}
+            {data.nav.services}
           </a>
           <a href={home + '#about'} class="link-primary">
-            {data.nav[1]}
+            {data.nav.about}
           </a>
           <a href={home + '#datamodel'} class="link-primary">
-            {data.nav[2]}
+            {data.nav.dataModel}
           </a>
           <a href={home + '#technology'} class="link-primary">
             {data.footer.technologyLabel}
