@@ -26,9 +26,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
         <p class="mt-8 max-w-md text-sm leading-relaxed text-black/55">{data.footer.description}</p>
       </div>
       <div>
-        <span class="text-sm font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">
-          {data.footer.navigationLabel}
-        </span>
+        <span class="section-eyebrow mb-7">{data.footer.navigationLabel}</span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
           <a href={home + '#services'} class="link-primary">
             {data.nav[0]}
@@ -48,9 +46,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
         </nav>
       </div>
       <div>
-        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">
-          {data.footer.legalLabel}
-        </span>
+        <span class="section-eyebrow mb-7">{data.footer.legalLabel}</span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
           <a href={impressum} class="link-primary">
             {data.footer.imprintLabel}
@@ -58,9 +54,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
         </nav>
       </div>
       <div>
-        <span class="text-[10px] font-mono uppercase tracking-[.18em] text-[#002bff] block mb-7">
-          {data.footer.locationLabel}
-        </span>
+        <span class="section-eyebrow mb-7">{data.footer.locationLabel}</span>
         <address class="not-italic text-sm leading-relaxed text-black/60">
           <span class="block text-black/80">{data.footer.company}</span>
           {data.footer.address.map((line: string) => (
@@ -75,7 +69,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
             {data.footer.email}
           </a>
           <a
-            href={`tel:${data.footer.phone.replace(/[^+\d]/g, '')}`}
+            href={`tel:${data.footer.phone.replace(/[^+\\d]/g, '')}`}
             class="block text-black/60 link-primary"
           >
             {data.footer.phone}
