@@ -26,18 +26,35 @@ const sections = data.impressum.sections;
         </p>
       </header>
       <div class="max-w-4xl">
-        {sections.map((section: string[], index: number) => (
+        {sections.map((section, index) => (
           <article class="py-10 md:py-12 border-b border-black/10 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-12">
             <div>
-              <>
-                <span class="text-[10px] font-mono uppercase tracking-[.16em] text-black/40">
-                  0{index + 1}
-                </span>
-                <h2 class="mt-2 text-base md:text-lg font-semibold tracking-tight">{section[0]}</h2>
-              </>
+              <span class="text-[10px] font-mono uppercase tracking-[.16em] text-black/40">
+                0{index + 1}
+              </span>
+              <h2 class="mt-2 text-base md:text-lg font-semibold tracking-tight">{section.title}</h2>
             </div>
-            <div class="text-sm md:text-[15px] leading-7 text-black/65 [&_strong]:text-black [&_a]:text-black [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary [&_.legal-placeholder]:text-primary [&_.legal-placeholder]:font-mono">
-              <div set:html={section[1]} />
+            <div class="text-sm md:text-[15px] leading-7 text-black/65 space-y-2">
+              {section.blocks.map((block) => (
+                block.type === 'link' ? (
+                  <div>
+                    <span class="font-semibold text-black">{block.label}:</span>{' '}
+                    <a
+                      href={block.href}
+                      class="text-black underline underline-offset-4 hover:text-primary"
+                    >
+                      {block.value}
+                    </a>
+                  </div>
+                ) : block.type === 'field' ? (
+                  <div>
+                    <span class="font-semibold text-black">{block.label}:</span>{' '}
+                    <span>{block.value}</span>
+                  </div>
+                ) : (
+                  <p>{block.value}</p>
+                )
+              ))}
             </div>
           </article>
         ))}
