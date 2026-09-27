@@ -11,16 +11,16 @@ const sections = data.impressum.sections;
 
 <main class="min-h-screen relative bg-[#f3f2ee]">
   <Header data={data} />
-  <section class="px-6 md:px-16 pt-16 md:pt-24 pb-24 md:pb-32 border-t border-black/10">
-    <div class="max-w-7xl mx-auto">
+  <section class="section-padding pt-16 md:pt-24 pb-24 md:pb-32 border-t border-black/10">
+    <div class="container-site">
       <header class="max-w-4xl pb-16 md:pb-24 border-b border-black/10">
-        <span class="text-xs font-mono uppercase tracking-[.18em] text-[#002bff] block mb-6">
+        <span class="section-eyebrow text-[#002bff] mb-6 tracking-[.18em]">
           {data.impressum.kicker}
         </span>
-        <h1 class="text-5xl md:text-6xl font-black tracking-tighter leading-[.88] mb-8">
+        <h1 class="page-title mb-8">
           {data.impressum.title}
         </h1>
-        <p class="max-w-2xl text-base md:text-lg leading-relaxed text-black/60">
+        <p class="max-w-2xl body-copy text-black/60">
           {data.impressum.lead}
         </p>
       </header>
@@ -43,7 +43,7 @@ const sections = data.impressum.sections;
       </div>
       <div class="mt-10 max-w-4xl flex flex-col sm:flex-row justify-between gap-4 text-[10px] font-mono uppercase tracking-widest text-black/35">
         <span>{data.statusLabel}</span>
-        <a href={home} class="hover:text-[#002bff] transition-colors">
+        <a href={home} class="link-primary">
           {data.websiteLabel}
         </a>
       </div>
