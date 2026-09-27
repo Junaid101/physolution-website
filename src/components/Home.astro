@@ -1,0 +1,30 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import Hero from './home/Hero.astro';
+import Services from './home/Services.astro';
+import About from './home/About.astro';
+import DataModel from './home/DataModel.astro';
+import Technology from './home/Technology.astro';
+import ContactSection from './home/ContactSection.astro';
+import type { SiteContent } from '../lib/content';
+import type { Language } from '../lib/languages';
+
+const { data, locale } = Astro.props as { data: SiteContent; locale: Language };
+---
+
+<main id="mainWebsite" class="min-h-screen relative">
+  <Header data={data} locale={locale} />
+  <Hero data={data.hero} />
+  <Services data={data.services} />
+  <About data={data.about} />
+  <DataModel data={data.model} />
+  <Technology data={data.tech} />
+  <ContactSection data={data.contact} locale={locale} />
+  <Footer data={data} locale={locale} />
+</main>
+
+<script>
+  import { initHeroAnimation } from './home/HeroAnimation';
+  initHeroAnimation();
+</script>
