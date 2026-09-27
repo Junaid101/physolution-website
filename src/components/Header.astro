@@ -1,13 +1,13 @@
 ---
 import {
   getLocalizedPath,
-  getSupportedLanguage,
   LANGUAGE_LABELS,
   SUPPORTED_LANGUAGES,
 } from '../lib/languages';
+import type { Language } from '../lib/languages';
 
-const { data, locale } = Astro.props;
-const currentLanguage = getSupportedLanguage(locale);
+const { data, locale } = Astro.props as { data: import('../lib/content').SiteContent; locale: Language };
+const currentLanguage = locale;
 const home = getLocalizedPath(currentLanguage, '/');
 const contact = getLocalizedPath(currentLanguage, '/contact/');
 const contactSection = home + '#contact';
