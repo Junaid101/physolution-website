@@ -1,7 +1,9 @@
 ---
 import Header from './Header.astro';
 import Footer from './Footer.astro';
+import { getLocalizedPath, getSupportedLanguage } from '../lib/languages';
 const { data } = Astro.props;
+const currentLanguage = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
 ---
 
 <main id="mainWebsite" class="min-h-screen relative">
@@ -261,7 +263,7 @@ const { data } = Astro.props;
         {data.contact.intro}
       </p>
       <a
-        href={new URL('/' + (data.contactPage.title === 'Kontakt' ? 'de' : 'en') + '/contact/', Astro.url).pathname}
+        href={getLocalizedPath(currentLanguage, '/contact/')}
         class="button-primary shadow-xl"
       >
         {data.contact.cta}
