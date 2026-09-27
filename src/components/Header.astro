@@ -14,9 +14,7 @@ const contactSection = home + '#contact';
 ---
 
 <header class="w-full max-w-[1600px] mx-auto section-padding py-8 flex justify-between items-center relative z-50">
-  <a href={home} class="font-semibold text-lg tracking-tight">
-    PhySolution
-  </a>
+  <a href={home} class="font-semibold text-lg tracking-tight">PhySolution</a>
 
   <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium">
     <a href={home + '#services'} class="link-primary">{data.nav[0]}</a>
@@ -44,18 +42,11 @@ const contactSection = home + '#contact';
       ))}
     </div>
 
-    <a
-      href={contactSection}
-      class="hidden md:inline-flex button-outline"
-    >
+    <a href={contactSection} class="hidden md:inline-flex button-outline">
       {data.contactLabel}
     </a>
   </div>
 </header>
-  <a
-    href={contactSection}
-    class="md:hidden fixed bottom-5 right-5 z-[60] button-primary px-5 py-3 shadow-lg"
-  >
-    {data.contactLabel}
-  </a>
-
+<a href={contactSection} class="md:hidden fixed bottom-5 right-5 z-[60] button-primary px-5 py-3 shadow-lg">
+  {data.contactLabel}
+</a>
