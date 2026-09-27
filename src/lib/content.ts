@@ -1,7 +1,24 @@
 export type Locale = 'en' | 'de';
+
+export type HeroContent = { kicker: string; title: string[]; intro: string; since: string; cta: string };
+export type ServiceItem = { title: string; description: string };
+export type ServicesContent = { kicker: string; title: string[]; intro: string; items: ServiceItem[] };
+export type HistoryItem = { year: string; description: string };
+export type AboutContent = { historyLabel: string; kicker: string; title: string[]; paragraphs: string[]; history: HistoryItem[] };
+export type DataModelCard = { step: string; title: string; description: string };
+export type DataModelContent = { kicker: string; title: string[]; intro: string; cards: DataModelCard[] };
+export type TechnologyPrinciple = { step: string; title: string; description: string };
+export type TechnologyItem = { category: string; label: string };
+export type TechnologyContent = { kicker: string; title: string[]; intro: string; principles: TechnologyPrinciple[]; items: TechnologyItem[] };
+export type ContactPageContent = { kicker: string; title: string; lead: string; company: string; address: string[]; phone: string; email: string; directionsLabel: string };
+export type ContactContent = { kicker: string; title: string[]; intro: string; cta: string };
+export type FooterContent = { description: string; navigationLabel: string; legalLabel: string; locationLabel: string; directionsLabel: string; imprintLabel: string; privacyLabel: string; technologyLabel: string; company: string; address: string[]; contactLabel: string; email: string; phone: string; legal: { label: string; path: string }[] };
+export type ImpressumSection = { title: string; html: string };
+export type ImpressumContent = { kicker: string; title: string; lead: string; sections: ImpressumSection[] };
+export type SiteContent = { nav: { services: string; about: string; dataModel: string }; contactLabel: string; hero: HeroContent; services: ServicesContent; about: AboutContent; model: DataModelContent; tech: TechnologyContent; impressum: ImpressumContent; contactPage: ContactPageContent; contact: ContactContent; footer: FooterContent; original: string; top: string; websiteLabel: string; statusLabel: string };
 export const content = {
   de: {
-    nav: ['Leistungen', 'Über uns', 'Datenmodell'],
+    nav: { services: 'Leistungen', about: 'Über uns', dataModel: 'Datenmodell' },
     contactLabel: "Let's Talk",
     hero: {
       kicker: '01 / Wenn Stammdaten zum Problem werden',
@@ -13,18 +30,18 @@ export const content = {
     },
     services: {
       kicker: '02 / Leistungen',
-      title: ['Weniger Reibung.', 'Mehr verlässliche Daten.'],
+      title: { category: 'Weniger Reibung.', label: 'Mehr verlässliche Daten.' },
       intro:
         'Wir arbeiten dort, wo schlechte Stammdaten im Alltag spürbar werden: bei manuellen Prüfungen, doppelten Datensätzen, uneinheitlichen Informationen und Prozessen, die sich nicht sauber über Systeme hinweg abbilden lassen.',
       items: [
-        ['Geschäftspartner-Stammdaten', 'Eine verlässliche Datenbasis schaffen'],
-        ['Data Quality & MDM', 'Fehler erkennen und Qualität sichern'],
-        ['Matching & Golden Records', 'Dubletten zusammenführen'],
-        ['Stammdatenkonsolidierung', 'Verteilte Bestände vereinheitlichen'],
-        ['Data Governance', 'Regeln und Verantwortung verankern'],
-        ['ERP & Web Integration', 'Daten sauber in Prozesse bringen'],
-        ['Analytics & Reporting', 'Daten verständlich nutzbar machen'],
-        ['Identität & Risikodaten', 'Prüfungen und Entscheidungen unterstützen'],
+        { title: 'Geschäftspartner-Stammdaten', description: 'Eine verlässliche Datenbasis schaffen' },
+        { category: 'Data Quality & MDM', label: 'Fehler erkennen und Qualität sichern' },
+        { category: 'Matching & Golden Records', label: 'Dubletten zusammenführen' },
+        { category: 'Stammdatenkonsolidierung', label: 'Verteilte Bestände vereinheitlichen' },
+        { category: 'Data Governance', label: 'Regeln und Verantwortung verankern' },
+        { category: 'ERP & Web Integration', label: 'Daten sauber in Prozesse bringen' },
+        { category: 'Analytics & Reporting', label: 'Daten verständlich nutzbar machen' },
+        { category: 'Identität & Risikodaten', label: 'Prüfungen und Entscheidungen unterstützen' },
       ],
     },
     about: {
@@ -38,68 +55,40 @@ export const content = {
         'Heute unterstützen wir Unternehmen dabei, Datenbestände zu verstehen, zu konsolidieren und in belastbare Prozesse zu überführen.',
       ],
       history: [
-        ['1996', 'Gründung der PhySolution GmbH.'],
-        ['1997', 'Technologie- und Experten-Datenbanken als frühe Datenprojekte.'],
-        ['Heute', 'Beratung und Umsetzung für Stammdaten und Geschäftspartnerdaten.'],
+        { year: '1996', description: 'Gründung der PhySolution GmbH.' },
+        { category: '1997', label: 'Technologie- und Experten-Datenbanken als frühe Datenprojekte.' },
+        { category: 'Heute', label: 'Beratung und Umsetzung für Stammdaten und Geschäftspartnerdaten.' },
       ],
     },
     model: {
       kicker: '04 / Datenmodell',
-      title: ['Vom Datenproblem', 'zum belastbaren Datensatz.'],
+      title: { category: 'Vom Datenproblem', label: 'zum belastbaren Datensatz.' },
       intro:
         'Der entscheidende Schritt ist nicht, mehr Daten zu sammeln. Es geht darum, aus vorhandenen Daten eine eindeutige, geprüfte und nutzbare Grundlage für Geschäftsprozesse zu machen.',
       cards: [
-        [
-          '01 / VERSTEHEN',
-          'Datenquellen',
-          'Welche Systeme liefern Daten? Wo unterscheiden sich Strukturen, Formate und Verantwortlichkeiten?',
-        ],
-        [
-          '02 / BEREINIGEN',
-          'Data Quality',
-          'Fehler, fehlende Angaben und uneinheitliche Werte erkennen, Regeln definieren und Daten standardisieren.',
-        ],
-        [
-          '03 / ZUSAMMENFÜHREN',
-          'Matching',
-          'Dubletten und unterschiedliche Schreibweisen erkennen und zu belastbaren Golden Records verbinden.',
-        ],
-        [
-          '04 / VERANKERN',
-          'Governance',
-          'Prozesse, Verantwortlichkeiten und technische Regeln so aufsetzen, dass Qualität nicht wieder verloren geht.',
-        ],
+        { step: '01 / VERSTEHEN', title: 'Datenquellen', description: 'Welche Systeme liefern Daten? Wo unterscheiden sich Strukturen, Formate und Verantwortlichkeiten?' },
+        { step: '02 / BEREINIGEN', title: 'Data Quality', description: 'Fehler, fehlende Angaben und uneinheitliche Werte erkennen, Regeln definieren und Daten standardisieren.' },
+        { step: '03 / ZUSAMMENFÜHREN', title: 'Matching', description: 'Dubletten und unterschiedliche Schreibweisen erkennen und zu belastbaren Golden Records verbinden.' },
+        { step: '04 / VERANKERN', title: 'Governance', description: 'Prozesse, Verantwortlichkeiten und technische Regeln so aufsetzen, dass Qualität nicht wieder verloren geht.' },
       ],
     },
     tech: {
       kicker: '05 / Technologie',
-      title: ['Technik muss', 'das Problem lösen.'],
+      title: { category: 'Technik muss', label: 'das Problem lösen.' },
       intro:
         'Wir starten nicht mit einem Tool, sondern mit dem konkreten Daten- und Prozessproblem. Bestehende Systeme werden eingebunden, Datenflüsse nachvollziehbar gemacht und technische Lösungen so aufgebaut, dass sie im Alltag betreibbar bleiben.',
       principles: [
-        [
-          '01',
-          'Bestehendes nutzen',
-          'ERP, Datenbanken und Websysteme gezielt verbinden, statt funktionierende Strukturen unnötig zu ersetzen.',
-        ],
-        [
-          '02',
-          'Qualität messbar machen',
-          'Validierung, Regeln und Matching schaffen nachvollziehbare Ergebnisse statt manueller Bauchentscheidungen.',
-        ],
-        [
-          '03',
-          'Für den Alltag bauen',
-          'Datenflüsse und Lösungen müssen verständlich, prüfbar und gemeinsam mit den Fachbereichen weiterentwickelbar sein.',
-        ],
+        { step: '01', title: 'Bestehendes nutzen', description: 'ERP, Datenbanken und Websysteme gezielt verbinden, statt funktionierende Strukturen unnötig zu ersetzen.' },
+        { step: '02', title: 'Qualität messbar machen', description: 'Validierung, Regeln und Matching schaffen nachvollziehbare Ergebnisse statt manueller Bauchentscheidungen.' },
+        { step: '03', title: 'Für den Alltag bauen', description: 'Datenflüsse und Lösungen müssen verständlich, prüfbar und gemeinsam mit den Fachbereichen weiterentwickelbar sein.' },
       ],
       items: [
-        ['DATA', 'Master Data Management'],
-        ['QUALITY', 'Data Quality & Matching'],
-        ['ANALYTICS', 'Power BI & Analytics'],
-        ['DATABASE', 'MS-SQL & Datenbanken'],
-        ['INTEGRATION', 'ERP · Web · eCommerce'],
-        ['GOVERNANCE', 'Data Governance'],
+        { title: 'DATA', description: 'Master Data Management' },
+        { category: 'QUALITY', label: 'Data Quality & Matching' },
+        { category: 'ANALYTICS', label: 'Power BI & Analytics' },
+        { category: 'DATABASE', label: 'MS-SQL & Datenbanken' },
+        { category: 'INTEGRATION', label: 'ERP · Web · eCommerce' },
+        { category: 'GOVERNANCE', label: 'Data Governance' },
       ],
     },
     impressum: {
@@ -119,7 +108,7 @@ export const content = {
           'Handelsregister & Unternehmensform',
           'Eingetragen im Handelsregister.<br><strong>Registergericht:</strong> Amtsgericht Mannheim<br><strong>Registernummer:</strong> HRB 719194<br><strong>Rechtsform:</strong> Gesellschaft mit beschränkter Haftung (GmbH)',
         ],
-        ['Vertretungsberechtigung', '<strong>Geschäftsführer:</strong> Dr. Michael Speckmann'],
+        { category: 'Vertretungsberechtigung', label: '<strong>Geschäftsführer:</strong> Dr. Michael Speckmann' },
         [
           'Umsatzsteuer-Identifikationsnummer',
           '<strong>USt-IdNr.:</strong> DE177396297<br><strong>St-Nr.:</strong> 34 416 17391',
@@ -179,8 +168,8 @@ export const content = {
       email: 'info@physolution.com',
       phone: '+49 163 4283018',
       legal: [
-        ['Impressum', '/impressum/'],
-        ['Datenschutz', '/datenschutz/'],
+        { category: 'Impressum', label: '/impressum/' },
+        { category: 'Datenschutz', label: '/datenschutz/' },
       ],
     },
     original: 'ORIGINAL WEBSITE ↗',
@@ -189,7 +178,7 @@ export const content = {
     statusLabel: 'Stand: 2026',
   },
   en: {
-    nav: ['Services', 'About', 'Data model'],
+    nav: { services: 'Services', about: 'About', dataModel: 'Data model' },
     contactLabel: "Let's Talk",
     hero: {
       kicker: '01 / When master data becomes a problem',
@@ -201,18 +190,18 @@ export const content = {
     },
     services: {
       kicker: '02 / Services',
-      title: ['Less friction.', 'More reliable data.'],
+      title: { category: 'Less friction.', label: 'More reliable data.' },
       intro:
         'We work where poor master data becomes visible in day-to-day operations: manual checks, duplicate records, inconsistent information and processes that do not move cleanly across systems.',
       items: [
-        ['Business partner master data', 'Create one reliable data foundation'],
-        ['Data Quality & MDM', 'Find errors and protect quality'],
-        ['Matching & Golden Records', 'Resolve duplicate records'],
-        ['Master data consolidation', 'Unify distributed data sets'],
-        ['Data Governance', 'Establish rules and ownership'],
-        ['ERP & Web Integration', 'Put data into the right processes'],
-        ['Analytics & Reporting', 'Make data useful for decisions'],
-        ['Identity & risk data', 'Support checks and decisions'],
+        { title: 'Business partner master data', description: 'Create one reliable data foundation' },
+        { category: 'Data Quality & MDM', label: 'Find errors and protect quality' },
+        { category: 'Matching & Golden Records', label: 'Resolve duplicate records' },
+        { category: 'Master data consolidation', label: 'Unify distributed data sets' },
+        { category: 'Data Governance', label: 'Establish rules and ownership' },
+        { category: 'ERP & Web Integration', label: 'Put data into the right processes' },
+        { category: 'Analytics & Reporting', label: 'Make data useful for decisions' },
+        { category: 'Identity & risk data', label: 'Support checks and decisions' },
       ],
     },
     about: {
@@ -226,68 +215,40 @@ export const content = {
         'Today, we help organisations understand, consolidate and turn distributed data into reliable operational processes.',
       ],
       history: [
-        ['1996', 'PhySolution GmbH founded.'],
-        ['1997', 'Early technology and expert database projects.'],
-        ['Today', 'Consulting and implementation for master and business partner data.'],
+        { year: '1996', description: 'PhySolution GmbH founded.' },
+        { category: '1997', label: 'Early technology and expert database projects.' },
+        { category: 'Today', label: 'Consulting and implementation for master and business partner data.' },
       ],
     },
     model: {
       kicker: '04 / Data model',
-      title: ['From a data problem', 'to a trusted record.'],
+      title: { category: 'From a data problem', label: 'to a trusted record.' },
       intro:
         'The goal is not to collect more data. It is to turn existing data into an accurate, consistent and usable foundation for business processes.',
       cards: [
-        [
-          '01 / UNDERSTAND',
-          'Data sources',
-          'Identify the systems involved and understand differences in structures, formats and ownership.',
-        ],
-        [
-          '02 / CLEAN',
-          'Data Quality',
-          'Find errors, missing values and inconsistencies, then define rules and standards for better data.',
-        ],
-        [
-          '03 / CONNECT',
-          'Matching',
-          'Identify duplicates and different representations of the same partner and connect them into reliable golden records.',
-        ],
-        [
-          '04 / SUSTAIN',
-          'Governance',
-          'Put processes, ownership and technical rules in place so data quality does not deteriorate again.',
-        ],
+        { step: '01 / UNDERSTAND', title: 'Data sources', description: 'Identify the systems involved and understand differences in structures, formats and ownership.' },
+        { step: '02 / CLEAN', title: 'Data Quality', description: 'Find errors, missing values and inconsistencies, then define rules and standards for better data.' },
+        { step: '03 / CONNECT', title: 'Matching', description: 'Identify duplicates and different representations of the same partner and connect them into reliable golden records.' },
+        { step: '04 / SUSTAIN', title: 'Governance', description: 'Put processes, ownership and technical rules in place so data quality does not deteriorate again.' },
       ],
     },
     tech: {
       kicker: '05 / Technology',
-      title: ['Technology should', 'solve the problem.'],
+      title: { category: 'Technology should', label: 'solve the problem.' },
       intro:
         'We do not start with a tool. We start with the data and process problem. Existing systems are connected, data flows become traceable and technical solutions are built to remain practical to operate.',
       principles: [
-        [
-          '01',
-          'Use what works',
-          'Connect ERP, databases and web systems where they add value instead of replacing working structures unnecessarily.',
-        ],
-        [
-          '02',
-          'Make quality measurable',
-          'Validation, rules and matching create traceable results instead of manual guesswork.',
-        ],
-        [
-          '03',
-          'Build for real work',
-          'Data flows and solutions should remain understandable, auditable and adaptable with the business.',
-        ],
+        { step: '01', title: 'Use what works', description: 'Connect ERP, databases and web systems where they add value instead of replacing working structures unnecessarily.' },
+        { step: '02', title: 'Make quality measurable', description: 'Validation, rules and matching create traceable results instead of manual guesswork.' },
+        { step: '03', title: 'Build for real work', description: 'Data flows and solutions should remain understandable, auditable and adaptable with the business.' },
       ],
       items: [
-        ['DATA', 'Master Data Management'],
-        ['QUALITY', 'Data Quality & Matching'],
-        ['ANALYTICS', 'Power BI & Analytics'],
-        ['DATABASE', 'MS-SQL & Databases'],
-        ['INTEGRATION', 'ERP · Web · eCommerce'],
-        ['GOVERNANCE', 'Data Governance'],
+        { title: 'DATA', description: 'Master Data Management' },
+        { category: 'QUALITY', label: 'Data Quality & Matching' },
+        { category: 'ANALYTICS', label: 'Power BI & Analytics' },
+        { category: 'DATABASE', label: 'MS-SQL & Databases' },
+        { category: 'INTEGRATION', label: 'ERP · Web · eCommerce' },
+        { category: 'GOVERNANCE', label: 'Data Governance' },
       ],
     },
     impressum: {
@@ -307,7 +268,7 @@ export const content = {
           'Commercial Register & Corporate Structure',
           'Registered in the commercial register.<br><strong>Register court:</strong> Mannheim Local Court (Amtsgericht Mannheim)<br><strong>Registration number:</strong> HRB 719194<br><strong>Legal form:</strong> German limited liability company (GmbH)',
         ],
-        ['Authorised representatives', '<strong>Managing director:</strong> Dr. Michael Speckmann'],
+        { category: 'Authorised representatives', label: '<strong>Managing director:</strong> Dr. Michael Speckmann' },
         [
           'VAT identification number',
           '<strong>VAT ID:</strong> DE177396297<br><strong>Tax number:</strong> 34 416 17391',
@@ -367,8 +328,8 @@ export const content = {
       email: 'info@physolution.com',
       phone: '+49 163 4283018',
       legal: [
-        ['Imprint', '/impressum/'],
-        ['Privacy policy', '/datenschutz/'],
+        { category: 'Imprint', label: '/impressum/' },
+        { category: 'Privacy policy', label: '/datenschutz/' },
       ],
     },
     original: 'ORIGINAL WEBSITE ↗',
@@ -376,8 +337,8 @@ export const content = {
     websiteLabel: 'Back to website ↗',
     statusLabel: 'Status: 2026',
   },
-} as const;
+} satisfies Record<Locale, SiteContent>;
 
-export function getContent(locale: Locale) {
+export function getContent(locale: Locale): SiteContent {
   return content[locale];
 }
