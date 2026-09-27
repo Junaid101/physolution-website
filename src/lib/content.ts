@@ -19,7 +19,7 @@ export type LegalBlock =
   | { type: 'link'; label: string; value: string; href: string };
 export type ImpressumSection = { title: string; blocks: LegalBlock[] };
 export type ImpressumContent = { kicker: string; title: string; lead: string; sections: ImpressumSection[] };
-export type SiteContent = { nav: { services: string; about: string; dataModel: string }; contactLabel: string; hero: HeroContent; services: ServicesContent; about: AboutContent; model: DataModelContent; tech: TechnologyContent; impressum: ImpressumContent; contactPage: ContactPageContent; contact: ContactContent; footer: FooterContent; original: string; top: string; websiteLabel: string; statusLabel: string };
+export type SiteContent = { nav: { services: string; about: string; dataModel: string }; contactLabel: string; hero: HeroContent; services: ServicesContent; about: AboutContent; model: DataModelContent; tech: TechnologyContent; impressum: ImpressumContent; contactPage: ContactPageContent; contact: ContactContent; footer: FooterContent; top: string; websiteLabel: string; statusLabel: string };
 export const content = {
   de: {
     nav: { services: 'Leistungen', about: 'Über uns', dataModel: 'Datenmodell' },
@@ -205,7 +205,6 @@ sections: [
         { label: 'Datenschutz', path: '/datenschutz/' },
       ],
     },
-    original: 'ORIGINAL WEBSITE ↗',
     top: 'BACK TO TOP ↑',
     websiteLabel: 'Zur Website ↗',
     statusLabel: 'Stand: 2026',
@@ -394,7 +393,6 @@ sections: [
         { label: 'Privacy policy', path: '/datenschutz/' },
       ],
     },
-    original: 'ORIGINAL WEBSITE ↗',
     top: 'BACK TO TOP ↑',
     websiteLabel: 'Back to website ↗',
     statusLabel: 'Status: 2026',
