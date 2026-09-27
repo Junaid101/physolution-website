@@ -34,7 +34,7 @@ The project deliberately favors shared components and thin locale routes:
 - `src/pages/en/...` and `src/pages/de/...` are thin route adapters.
 - `src/lib/languages.ts` owns locale and localized-path logic.
 - `src/lib/content.ts` owns translated copy and business data.
-- `src/components/Website.astro` contains the shared homepage structure and interaction.
+- `src/components/Home.astro` contains the shared homepage structure and interaction.
 - `src/components/Impressum.astro` contains the shared legal-page structure.
 - `src/components/Header.astro` and `src/components/Footer.astro` consume locale helpers rather than deciding between German and English themselves.
 - `src/layouts/Layout.astro` derives the document language from the URL.
