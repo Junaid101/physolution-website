@@ -3,6 +3,10 @@
   --bg: #f3f2ee;
   --blue: #002bff;
   --text: #111;
+  --border: rgb(17 17 17 / 10%);
+  --border-strong: rgb(17 17 17 / 20%);
+  --muted: rgb(17 17 17 / 65%);
+  --muted-soft: rgb(17 17 17 / 50%);
 }
 * {
   box-sizing: border-box;
@@ -56,4 +60,16 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+@layer components {
+  .container-site { @apply max-w-7xl mx-auto; }
+  .section-padding { @apply px-6 md:px-16; }
+  .section-eyebrow { @apply text-xs font-mono uppercase tracking-widest text-black/50 block; }
+  .section-title { @apply text-4xl md:text-6xl font-bold tracking-tight; }
+  .page-title { @apply text-5xl md:text-6xl font-black tracking-tighter leading-[.88]; }
+  .body-copy { @apply text-base md:text-lg leading-relaxed text-black/65; }
+  .link-primary { @apply hover:text-[#002bff] transition-colors; }
+  .button-primary { @apply inline-flex items-center justify-center bg-[#002bff] text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest hover:bg-blue-700 transition-colors; }
+  .button-outline { @apply inline-flex items-center justify-center border border-[#002bff] text-[#002bff] px-5 py-2.5 rounded-full hover:bg-[#002bff] hover:text-white transition-colors; }
 }
