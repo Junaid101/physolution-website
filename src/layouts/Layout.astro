@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-import { getSupportedLanguage } from '../lib/languages';
-const { title, description, locale } = Astro.props;
+import type { Language } from '../lib/languages';
+const { title, description, locale } = Astro.props as { title: string; description: string; locale: Language };
 ---
 
 <!doctype html>
