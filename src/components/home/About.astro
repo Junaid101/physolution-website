@@ -1,0 +1,37 @@
+---
+import type { AboutContent } from '../../lib/content';
+
+const { data } = Astro.props as { data: AboutContent };
+---
+
+<section id="about" class="px-6 md:px-16 py-28 editorial-grid border-b border-black/10">
+  <div class="container-site flex flex-col lg:flex-row justify-between items-start gap-16">
+    <div class="max-w-3xl">
+      <span class="section-eyebrow mb-4">{data.kicker}</span>
+      <h2 class="section-title leading-none mb-10">
+        {data.title.map((x) => (
+          <>
+            <span>{x}</span>
+            <br />
+          </>
+        ))}
+      </h2>
+      <div class="body-copy space-y-6">
+        {data.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+    <div class="w-full lg:w-80">
+      <div class="border-t border-black/20 pt-6 mb-10">
+        <span class="section-eyebrow text-black/40">{data.historyLabel}</span>
+      </div>
+      <div class="space-y-8">
+        {data.history.map((item) => (
+          <div>
+            <span class="text-primary font-mono text-sm font-bold">{item.year}</span>
+            <p class="text-sm text-black/65 mt-2">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
