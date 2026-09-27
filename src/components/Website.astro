@@ -14,7 +14,7 @@ const { data } = Astro.props;
     <div id="heroBlueBar" class="blue-bar"></div>
     <div id="heroBlackContent" class="content-layer">
       <div class="container-site w-full">
-        <span class="section-eyebrow text-[#002bff] mb-6">
+        <span class="section-eyebrow text-primary mb-6">
           {data.hero.kicker}
         </span>
         <h1 class="text-black text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-[.92] mb-10 max-w-7xl">
@@ -33,12 +33,12 @@ const { data } = Astro.props;
       </div>
       <div class="container-site w-full flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mt-16">
         <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-black/60">
-          <span class="w-2 h-2 bg-[#002bff]"></span>
+          <span class="w-2 h-2 bg-primary"></span>
           {data.hero.since}
         </div>
         <a
           href="#services"
-          class="text-sm uppercase tracking-widest font-medium hover:text-[#002bff]"
+          class="text-sm uppercase tracking-widest font-medium hover:text-primary"
         >
           {data.hero.cta}
         </a>
@@ -127,7 +127,7 @@ const { data } = Astro.props;
           {data.about.history.map((x: string[]) => (
             <div>
               <>
-                <span class="text-[#002bff] font-mono text-sm font-bold">{x[0]}</span>
+                <span class="text-primary font-mono text-sm font-bold">{x[0]}</span>
                 <p class="text-sm text-black/65 mt-2">{x[1]}</p>
               </>
             </div>
@@ -161,7 +161,7 @@ const { data } = Astro.props;
         {data.model.cards.map((x: string[]) => (
           <div class="bg-white/80 p-8 rounded-2xl border border-black/10 shadow-sm">
             <>
-              <span class="text-xs font-mono text-[#002bff] block mb-8">{x[0]}</span>
+              <span class="text-xs font-mono text-primary block mb-8">{x[0]}</span>
               <h3 class="text-xl font-medium mb-3">{x[1]}</h3>
               <p class="text-black/65 text-sm leading-relaxed">{x[2]}</p>
             </>
@@ -209,7 +209,7 @@ const { data } = Astro.props;
         {data.tech.principles.map((x: string[]) => (
           <article class="bg-[#f3f2ee] p-7 md:p-9 min-h-52">
             <>
-              <span class="text-xs font-mono text-[#002bff]">{x[0]}</span>
+              <span class="text-xs font-mono text-primary">{x[0]}</span>
               <h3 class="text-2xl font-semibold mt-8 mb-3">{x[1]}</h3>
               <p class="text-sm text-black/65 leading-relaxed">{x[2]}</p>
             </>
@@ -224,15 +224,15 @@ const { data } = Astro.props;
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {data.tech.items.map((x: string[], i: number) => (
-          <div class="group border border-black/15 bg-white/55 p-6 flex items-center justify-between hover:border-[#002bff] transition-colors">
+          <div class="group border border-black/15 bg-white/55 p-6 flex items-center justify-between hover:border-primary transition-colors">
             <>
               <div>
                 <>
-                  <span class="text-[10px] font-mono text-[#002bff]">{x[0]}</span>
+                  <span class="text-[10px] font-mono text-primary">{x[0]}</span>
                   <h3 class="text-base font-medium mt-2">{x[1]}</h3>
                 </>
               </div>
-              <span class="font-mono text-xs text-black/30 group-hover:text-[#002bff]">
+              <span class="font-mono text-xs text-black/30 group-hover:text-primary">
                 0{i + 1}
               </span>
             </>
