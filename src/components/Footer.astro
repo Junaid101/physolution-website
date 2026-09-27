@@ -58,7 +58,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
         <span class="section-eyebrow mb-7">{data.footer.locationLabel}</span>
         <address class="not-italic text-sm leading-relaxed text-black/60">
           <span class="block text-black/80">{data.footer.company}</span>
-          {data.footer.address.map((line: string) => (
+          {data.footer.address.map((line) => (
             <span class="block">{line}</span>
           ))}
         </address>
