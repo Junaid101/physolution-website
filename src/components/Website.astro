@@ -2,8 +2,8 @@
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import { getLocalizedPath, getSupportedLanguage } from '../lib/languages';
-const { data } = Astro.props;
-const currentLanguage = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
+const { data, locale } = Astro.props;
+const currentLanguage = getSupportedLanguage(locale);
 ---
 
 <main id="mainWebsite" class="min-h-screen relative">
