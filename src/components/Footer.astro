@@ -13,7 +13,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
     class="absolute inset-0 pointer-events-none opacity-70"
     style="background-image:linear-gradient(to right,rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.035) 1px,transparent 1px);background-size:100px 100px"
   ></div>
-  <div class="relative max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-20">
+  <div class="relative container-site section-padding py-16 md:py-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_0.85fr_0.7fr_1fr] gap-14 lg:gap-10">
       <div class="lg:pr-16">
         <a href={home} class="inline-flex items-center gap-3 group">
@@ -30,19 +30,19 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
           {data.footer.navigationLabel}
         </span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
-          <a href={home + '#services'} class="hover:text-[#002bff] transition-colors">
+          <a href={home + '#services'} class="link-primary">
             {data.nav[0]}
           </a>
-          <a href={home + '#about'} class="hover:text-[#002bff] transition-colors">
+          <a href={home + '#about'} class="link-primary">
             {data.nav[1]}
           </a>
-          <a href={home + '#datamodel'} class="hover:text-[#002bff] transition-colors">
+          <a href={home + '#datamodel'} class="link-primary">
             {data.nav[2]}
           </a>
-          <a href={home + '#technology'} class="hover:text-[#002bff] transition-colors">
+          <a href={home + '#technology'} class="link-primary">
             {data.footer.technologyLabel}
           </a>
-          <a href={contact} class="hover:text-[#002bff] transition-colors">
+          <a href={contact} class="link-primary">
             {data.contactPage.title}
           </a>
         </nav>
@@ -52,7 +52,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
           {data.footer.legalLabel}
         </span>
         <nav class="flex flex-col items-start gap-4 text-sm font-mono text-black/60">
-          <a href={impressum} class="hover:text-[#002bff] transition-colors">
+          <a href={impressum} class="link-primary">
             {data.footer.imprintLabel}
           </a>
         </nav>
@@ -70,13 +70,13 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
         <div class="mt-6 space-y-2 text-sm font-mono">
           <a
             href={`mailto:${data.footer.email}`}
-            class="block text-black/60 hover:text-[#002bff] transition-colors"
+            class="block text-black/60 link-primary"
           >
             {data.footer.email}
           </a>
           <a
             href={`tel:${data.footer.phone.replace(/[^+\d]/g, '')}`}
-            class="block text-black/60 hover:text-[#002bff] transition-colors"
+            class="block text-black/60 link-primary"
           >
             {data.footer.phone}
           </a>
@@ -84,7 +84,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
             href="https://www.google.com/maps/search/?api=1&query=Ringstr.+11%2C+76356+Weingarten+%28Baden%29"
             target="_blank"
             rel="noopener noreferrer"
-            class="block text-black/60 hover:text-[#002bff] transition-colors"
+            class="block text-black/60 link-primary"
           >
             {data.footer.directionsLabel} ↗
           </a>
@@ -95,7 +95,7 @@ const contact = getLocalizedPath(currentLanguage, '/contact/');
       <span>
         {data.footer.company} © 2026 · {data.footer.address[1]}
       </span>
-      <a href="#heroSection" class="hover:text-[#002bff] transition-colors">
+      <a href="#heroSection" class="link-primary">
         {data.top}
       </a>
     </div>
