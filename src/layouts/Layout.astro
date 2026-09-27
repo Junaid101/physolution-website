@@ -1,8 +1,7 @@
 ---
 import '../styles/global.css';
 import { getSupportedLanguage } from '../lib/languages';
-const { title, description } = Astro.props;
-const locale = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
+const { title, description, locale } = Astro.props;
 ---
 
 <!doctype html>
