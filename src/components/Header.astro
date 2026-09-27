@@ -6,8 +6,8 @@ import {
   SUPPORTED_LANGUAGES,
 } from '../lib/languages';
 
-const { data } = Astro.props;
-const currentLanguage = getSupportedLanguage(Astro.url.pathname.split('/')[1]);
+const { data, locale } = Astro.props;
+const currentLanguage = getSupportedLanguage(locale);
 const home = getLocalizedPath(currentLanguage, '/');
 const contact = getLocalizedPath(currentLanguage, '/contact/');
 const contactSection = home + '#contact';
