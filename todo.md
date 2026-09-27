@@ -157,14 +157,14 @@ instead of:
 
 ### 2.2 Replace tuple access
 
-- [ ] Replace patterns such as `x[0]`, `x[1]`, `x[2]` with named properties.
+- [x] Replace patterns such as `x[0]`, `x[1]`, `x[2]` with named properties.
 - [ ] Remove unnecessary annotations such as `(x: string[])` once the content model supplies the type.
 - [ ] Ensure components receive typed props.
 
 ### 2.3 Type the complete locale content
 
-- [ ] Define one shared `SiteContent` type.
-- [ ] Ensure both `de` and `en` satisfy that type.
+- [x] Define one shared `SiteContent` type.
+- [x] Ensure both `de` and `en` satisfy that type.
 - [ ] Use TypeScript to catch missing sections between languages.
 - [ ] Keep the German and English structures identical even where the actual copy differs.
 
